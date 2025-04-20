@@ -1,10 +1,11 @@
 <template>
-  <router-view />
+  <div id="app">
+    <Navbar />
+    <router-view />
+  </div>
 </template>
 
 <script setup>
-</script>
+import Navbar from './components/Navbar.vue'
 
-<style scoped>
-/* Puedes agregar estilos globales aquí */
-</style>
+</script>

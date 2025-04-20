@@ -1,0 +1,101 @@
+<template>
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <h1>Hospital XYZ</h1>
+      </div>
+      <ul class="nav-links">
+        <li><router-link to="/">Inicio</router-link></li>
+        <li><router-link to="/nosotros">Nosotros</router-link></li>
+        <li><router-link to="/servicios">Servicios</router-link></li>
+        <li><router-link to="/doctores">Doctores</router-link></li>
+        <li><router-link to="/contacto">Contacto</router-link></li>
+      </ul>
+    </nav>
+  </header>
+</template>
+
+<script setup>
+  // Aquí puedes agregar cualquier lógica si es necesario
+</script>
+
+<style scoped>
+/* Estilos del Navbar */
+header {
+  background-color: #16213e;
+  padding: 1rem 2rem;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+h1 {
+  color: #ffffff;
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.nav-links {
+  list-style-type: none;
+  display: flex;
+  padding: 0;
+}
+
+.nav-links li {
+  margin-left: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 1rem;
+}
+
+.nav-links a:hover {
+  color: #7646cf;
+}
+
+/* Responsive: Menú en pantallas pequeñas */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links li {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+
+  .menu-toggle {
+    display: block;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 1.5rem;
+  }
+}
+</style>
