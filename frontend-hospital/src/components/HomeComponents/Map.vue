@@ -22,7 +22,7 @@
           <h3 class="mb-3 fw-bold">Contáctanos</h3>
           <ul class="list-unstyled text-muted">
             <li class="mb-2">
-              <strong>📍 Dirección:</strong> Avenida Villar, Sucre, Bolivia
+              <strong>Dirección:</strong> Avenida Villar, Sucre, Bolivia
             </li>
             <li class="mb-2">
               <strong>📞 Teléfono:</strong> (591) 4-1234567

@@ -6,17 +6,22 @@
       </div>
       <ul class="nav-links">
         <li><router-link to="/">Inicio</router-link></li>
-        <li><router-link to="/about">Nosotros</router-link></li>
         <li><router-link to="/service">Servicios</router-link></li>
-        <li><router-link to="/doctors">Doctores</router-link></li>
+        <li><router-link to="/about">Nosotros</router-link></li>
+        <li><router-link to="/notice">Noticias</router-link></li>
         <li><router-link to="/contact">Contacto</router-link></li>
+        
+        <!-- Ícono de buscador -->
+        <li>
+          <i class="bi bi-search search-icon"></i>
+        </li>
       </ul>
     </nav>
   </header>
 </template>
 
 <script setup>
-  // Aquí puedes agregar cualquier lógica si es necesario
+// no es necesario agregar lógica aquí por ahora
 </script>
 
 <style scoped>
@@ -97,5 +102,17 @@ h1 {
     color: #ffffff;
     font-size: 1.5rem;
   }
+}
+
+
+.search-icon {
+  font-size: 1.2rem;
+  color: #ffffff;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.search-icon:hover {
+  color: #7646cf;
 }
 </style>

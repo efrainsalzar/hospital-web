@@ -23,124 +23,124 @@
           {
             titulo: "Medicina Interna",
             descripcion: "Diagnóstico y tratamiento integral de adultos con enfermedades internas.",
-            image: new URL('@/assets/images/serviciosHospital.png', import.meta.url).href
+            imagen: new URL('@/assets/images/serviciosHospital.png', import.meta.url).href
           },
           {
             titulo: "Pediatría",
             descripcion: "Cuidado preventivo y curativo para niños y adolescentes.",
-            image: "@assets/images/serviciosHospital.png",
-          }/*,
+            imagen: new URL('@/assets/images/serviciosHospital.png', import.meta.url).href
+          },
           {
             titulo: "Ginecología y Obstetricia",
             descripcion: "Atención a la salud reproductiva de la mujer y control del embarazo.",
-            imagen: "/images/ginecologia.jpg",
+            imagen: new URL('@/assets/images/serviciosHospital.png', import.meta.url).href
           },
           {
             titulo: "Cirugía General",
             descripcion: "Tratamientos quirúrgicos comunes como apendicitis, hernias, etc.",
-            imagen: "/images/cirugia.jpg",
+            imagen: new URL('@/assets/images/serviciosHospital.png', import.meta.url).href
           },
           {
             titulo: "Traumatología y Ortopedia",
             descripcion: "Diagnóstico y tratamiento de lesiones óseas y musculares.",
-            imagen: "/images/traumatologia.jpg",
+            imagen: new URL('@/assets/images/serviciosHospital.png', import.meta.url).href
           },
           {
             titulo: "Cardiología",
             descripcion: "Diagnóstico y tratamiento de enfermedades del corazón.",
-            imagen: "/images/cardiologia.jpg",
+            imagen: new URL('@/assets/images/serviciosHospital.png', import.meta.url).href
           },
           {
             titulo: "Neurología",
             descripcion: "Atención de trastornos del sistema nervioso.",
-            imagen: "/images/neurologia.jpg",
+            imagen: new URL('@/assets/images/serviciosHospital.png', import.meta.url).href
           },
           {
             titulo: "Urología",
             descripcion: "Diagnóstico y tratamiento de enfermedades del aparato urinario.",
-            imagen: "/images/urologia.jpg",
+            imagen: new URL('@/assets/images/serviciosHospital.png', import.meta.url).href
           },
           {
             titulo: "Otorrinolaringología",
             descripcion: "Tratamiento de oído, nariz y garganta.",
-            imagen: "/images/otorrino.jpg",
+            imagen: new URL('@/assets/images/serviciosHospital.png', import.meta.url).href
           },
           {
             titulo: "Oftalmología",
             descripcion: "Cuidado de la salud visual.",
-            imagen: "/images/oftalmologia.jpg",
+            imagen: new URL('@/assets/images/serviciosHospital.png', import.meta.url).href
           },
           {
             titulo: "Dermatología",
             descripcion: "Diagnóstico y tratamiento de enfermedades de la piel.",
-            imagen: "/images/dermatologia.jpg",
+            imagen: new URL('@/assets/images/serviciosHospital.png', import.meta.url).href
           },
           {
             titulo: "Psiquiatría",
             descripcion: "Diagnóstico y tratamiento de trastornos mentales.",
-            imagen: "/images/psiquiatria.jpg",
+            imagen: new URL('@/assets/images/serviciosHospital.png', import.meta.url).href
           },
           {
             titulo: "Laboratorio Clínico",
             descripcion: "Análisis de muestras para apoyar el diagnóstico médico.",
-            imagen: "/images/laboratorio.jpg",
+            imagen: new URL('@/assets/images/serviciosHospital.png', import.meta.url).href
           },
           {
             titulo: "Radiología e Imágenes",
             descripcion: "Estudios como rayos X, ecografías y tomografías.",
-            imagen: "/images/radiologia.jpg",
+            imagen: new URL('@/assets/images/serviciosHospital.png', import.meta.url).href
           },
           {
             titulo: "Farmacia Hospitalaria",
             descripcion: "Suministro y control de medicamentos a los pacientes.",
-            imagen: "/images/farmacia.jpg",
+            imagen: new URL('@/assets/images/serviciosHospital.png', import.meta.url).href
           },
           {
             titulo: "Fisioterapia y Rehabilitación",
             descripcion: "Terapias para recuperación física y funcional.",
-            imagen: "/images/fisioterapia.jpg",
+            imagen: new URL('@/assets/images/serviciosHospital.png', import.meta.url).href
           },
           {
             titulo: "Nutrición y Dietética",
             descripcion: "Evaluación y orientación nutricional para la salud.",
-            imagen: "/images/nutricion.jpg",
+            imagen: new URL('@/assets/images/serviciosHospital.png', import.meta.url).href
           },
           {
             titulo: "Psicología Clínica",
             descripcion: "Apoyo psicológico en procesos de salud/enfermedad.",
-            imagen: "/images/psicologia.jpg",
+            imagen: new URL('@/assets/images/serviciosHospital.png', import.meta.url).href
           },
           {
             titulo: "Emergencias (Urgencias)",
             descripcion: "Atención inmediata a pacientes en situación crítica.",
-            imagen: "/images/emergencias.jpg",
+            imagen: new URL('@/assets/images/serviciosHospital.png', import.meta.url).href
           },
           {
             titulo: "Hospitalización",
             descripcion: "Estancia hospitalaria según la necesidad médica.",
-            imagen: "/images/hospitalizacion.jpg",
+            imagen: new URL('@/assets/images/serviciosHospital.png', import.meta.url).href
           },
           {
             titulo: "Terapia Intensiva (UCI)",
             descripcion: "Atención especializada para pacientes críticos.",
-            imagen: "/images/uci.jpg",
+            imagen: new URL('@/assets/images/serviciosHospital.png', import.meta.url).href
           },
           {
             titulo: "Consulta Externa",
             descripcion: "Atención médica ambulatoria por especialidad.",
-            imagen: "/images/consulta.jpg",
+            imagen: new URL('@/assets/images/serviciosHospital.png', import.meta.url).href
           },
           {
             titulo: "Atención de Enfermería",
             descripcion: "Cuidado constante y profesional para los pacientes.",
-            imagen: "/images/enfermeria.jpg",
+            imagen: new URL('@/assets/images/serviciosHospital.png', import.meta.url).href
           },
           {
             titulo: "Trabajo Social",
             descripcion: "Apoyo en aspectos sociales y familiares del paciente.",
-            imagen: "/images/trabajo-social.jpg",
+            imagen: new URL('@/assets/images/serviciosHospital.png', import.meta.url).href
           },
-        */],
+        ],
       };
     },
   };
@@ -178,6 +178,9 @@
     margin: 0.5rem 0;
     display: block;
     text-decoration: none;
+  }
+  .titulo:hover {
+    color: rgb(255, 123, 123);
   }
   .descripcion {
     font-size: 0.95rem;
