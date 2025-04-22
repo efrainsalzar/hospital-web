@@ -1,17 +1,16 @@
 <template>
-  <section class="home">
-    <h1>Bienvenidos al Hospital</h1>
-    <p>Tu salud es nuestra prioridad. Conoce nuestros servicios y profesionales.</p>
-  </section>
+  <main>
+    <Carousel />
+    <About />
+    <Services />
+    <Map />
+    <!-- otras secciones -->
+  </main>
 </template>
 
 <script setup>
+import Carousel from '@/components/HomeComponents/Carousel.vue'
+import About from '@/components/HomeComponents/About.vue';
+import Services from '@/components/HomeComponents/Services.vue';
+import Map from '@/components/HomeComponents/Map.vue';
 </script>
-
-<style scoped>
-.home {
-  text-align: center;
-  padding: 2rem;
-}
-
-</style>
