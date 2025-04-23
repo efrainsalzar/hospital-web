@@ -1,82 +1,83 @@
 <template>
-    <footer class="footer text-white pt-5 pb-3">
-      <div class="container">
-        <div class="row">
-          <!-- Logo y breve descripción -->
-          <div class="col-md-3 mb-4">
-            <!--<img src="/logo-hospital-blanco.png" alt="Logo Hospital" class="mb-3" style="max-width: 150px;" />-->
-            <p class="small">
-              Hospital Universitario San Francisco Xavier, comprometido con la salud de nuestra comunidad.
-            </p>
-          </div>
-  
-          <!-- Enlaces importantes -->
-          <div class="col-md-3 mb-4">
-            <h5>Enlaces</h5>
-            <ul class="list-unstyled">
-              <li><a href="/nosotros" class="footer-link">Sobre Nosotros</a></li>
-              <li><a href="/servicios" class="footer-link">Servicios Médicos</a></li>
-              <li><a href="/doctores" class="footer-link">Especialistas</a></li>
-              <li><a href="/contacto" class="footer-link">Contacto</a></li>
-              <li><a href="/citas" class="footer-link">Citas Online</a></li>
-            </ul>
-          </div>
-  
-          <!-- Contacto -->
-          <div class="col-md-3 mb-4">
-            <h5>Contacto</h5>
-            <ul class="list-unstyled small">
-              <li>Avenida Villar, Sucre - Bolivia</li>
-              <li>📞 (591) 4-1234567</li>
-              <li>📧 contacto@hospital.com</li>
-              <li>🕒 Lun - Vie: 08:00 a 18:00</li>
-            </ul>
-          </div>
-  
-          <!-- Redes sociales -->
-          <div class="col-md-3 mb-4">
-            <h5>Síguenos</h5>
-            <div class="d-flex gap-3">
-              <a href="#" class="text-white fs-4"><i class="bi bi-facebook"></i></a>
-              <a href="#" class="text-white fs-4"><i class="bi bi-instagram"></i></a>
-              <a href="#" class="text-white fs-4"><i class="bi bi-whatsapp"></i></a>
-              <a href="#" class="text-white fs-4"><i class="bi bi-linkedin"></i></a>
-            </div>
-          </div>
-        </div>
-  
-        <hr class="border-top border-light" />
-  
-        <div class="row">
-          <div class="col-md-6 text-center text-md-start small">
-            © {{ new Date().getFullYear() }} Hospital San Francisco Xavier. Todos los derechos reservados.
-          </div>
-          <div class="col-md-6 text-center text-md-end small">
-            <a href="#" class="footer-link">Aviso de privacidad</a> |
-            <a href="#" class="footer-link">Términos de uso</a>
-          </div>
-        </div>
-      </div>
-    </footer>
-  </template>
-  
-  <script setup>
-  // No necesitas lógica aquí
-  </script>
-  
-  <style scoped>
-  .footer {
-    background-color: #101820;
-  }
-  
-  .footer-link {
-    color: #ccc;
-    text-decoration: none;
-  }
-  
-  .footer-link:hover {
-    color: #ffffff;
-    text-decoration: underline;
-  }
-  </style>
-  
+  <v-footer class="text-white py-6" style="background-color: #101820;">
+    <v-container>
+      <v-row>
+        <!-- Descripción -->
+        <v-col cols="12" md="3">
+          <p class="text-caption">
+            Hospital Universitario San Francisco Xavier, comprometido con la salud de nuestra comunidad.
+          </p>
+        </v-col>
+
+        <!-- Enlaces 
+        <v-col cols="12" md="3">
+          <h5 class="text-h6 mb-2">Enlaces</h5>
+          <v-list density="compact" nav>
+            <v-list-item v-for="link in footerLinks" :key="link.text" :to="link.href" class="px-0">
+              <v-list-item-title class="footer-link">{{ link.text }}</v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-col>-->
+
+        <!-- Contacto -->
+        <v-col cols="12" md="3">
+          <h5 class="text-h6 mb-2">Contacto</h5>
+          <v-list density="compact" class="px-0">
+            <v-list-item><v-list-item-title>Avenida Villar, Sucre - Bolivia</v-list-item-title></v-list-item>
+            <v-list-item><v-list-item-title>📞 (591) 4-1234567</v-list-item-title></v-list-item>
+            <v-list-item><v-list-item-title>📧 contacto@hospital.com</v-list-item-title></v-list-item>
+            <v-list-item><v-list-item-title>🕒 Lun - Vie: 08:00 a 18:00</v-list-item-title></v-list-item>
+          </v-list>
+        </v-col>
+
+        <!-- Redes sociales -->
+        <v-col cols="12" md="3">
+          <h5 class="text-h6 mb-2">Síguenos</h5>
+          <v-row class="d-flex" dense>
+            <v-col cols="3" v-for="(icon, i) in socialIcons" :key="i">
+              <v-btn icon variant="text" class="text-white">
+                <v-icon :icon="icon" />
+              </v-btn>
+            </v-col>
+          </v-row>
+        </v-col>
+      </v-row>
+
+      <v-divider class="my-4" />
+
+      <!-- Pie de página inferior -->
+      <v-row>
+        <v-col cols="12" md="6" class="text-center text-md-start text-caption">
+          © {{ new Date().getFullYear() }} Hospital San Francisco Xavier. Todos los derechos reservados.
+        </v-col>
+        <v-col cols="12" md="6" class="text-center text-md-end text-caption">
+          <v-btn variant="text" class="footer-link">Aviso de privacidad</v-btn> |
+          <v-btn variant="text" class="footer-link">Términos de uso</v-btn>
+        </v-col>
+      </v-row>
+    </v-container>
+  </v-footer>
+</template>
+
+<script setup>
+const footerLinks = [
+  { text: 'Sobre Nosotros', href: '/service' },
+  { text: 'Servicios Médicos', href: '/service' },
+  { text: 'Especialistas', href: '/service' },
+  { text: 'Contacto', href: '/service' },
+  { text: 'Citas Online', href: '/service' }
+];
+
+const socialIcons = ['mdi-facebook', 'mdi-instagram', 'mdi-whatsapp', 'mdi-linkedin'];
+</script>
+
+<style scoped>
+.footer-link {
+  color: #ccc;
+  text-transform: none;
+}
+.footer-link:hover {
+  color: white;
+  text-decoration: underline;
+}
+</style>

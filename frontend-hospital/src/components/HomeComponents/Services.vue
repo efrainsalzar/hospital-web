@@ -1,57 +1,56 @@
 <template>
-    <section class="py-5 servicios-section">
-      <div class="container">
-        <h2 class="mb-4 text-center">Nuestros Servicios</h2>
-        <div class="scroll-wrapper d-flex overflow-auto pb-3">
-          <div
-            v-for="(servicio, index) in servicios"
-            :key="index"
-            class="card mx-2 flex-shrink-0 servicio-card"
-          >
-            <div class="card-body text-center">
-              <i :class="servicio.icono" class="display-6 text-primary mb-3"></i>
-              <h5 class="card-title">{{ servicio.titulo }}</h5>
-              <p class="card-text">{{ servicio.descripcion }}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </template>
-  
-  <script setup>
-  const servicios = [
-    { titulo: 'Consulta General', descripcion: 'Atención médica primaria y seguimiento.', icono: 'bi bi-heart-pulse' },
-    { titulo: 'Pediatría', descripcion: 'Cuidado integral de los niños.', icono: 'bi bi-bandaid' },
-    { titulo: 'Laboratorio Clínico', descripcion: 'Análisis clínicos para diagnóstico.', icono: 'bi bi-eyedropper' },
-    { titulo: 'Radiología', descripcion: 'Rayos X, ecografías y más.', icono: 'bi bi-x-ray' },
-    { titulo: 'Emergencias', descripcion: 'Atención inmediata las 24h.', icono: 'bi bi-exclamation-triangle' },
-    { titulo: 'Odontología', descripcion: 'Salud y estética dental.', icono: 'bi bi-tooth' },
-    { titulo: 'Farmacia', descripcion: 'Medicamentos y orientación farmacéutica.', icono: 'bi bi-capsule' }
-  ]
-  </script>
-  
-  <style scoped>
-  .servicios-section {
-    background-color: #f8f9fa;
-  }
-  
-  .scroll-wrapper {
-    scroll-snap-type: x mandatory;
-  }
-  
-  .servicio-card {
-    width: 250px;
-    scroll-snap-align: start;
-    border: 1px solid #dee2e6;
-    border-radius: 0.75rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    background-color: #ffffff;
-    transition: transform 0.2s ease;
-  }
-  
-  .servicio-card:hover {
-    transform: scale(1.03);
-  }
-  </style>
-  
+  <v-container class="py-5 servicios-section">
+    <h2 class="mb-4 text-center">Nuestros Servicios</h2>
+    <v-row class="scroll-wrapper d-flex overflow-auto pb-3">
+      <v-col
+        v-for="(servicio, index) in servicios"
+        :key="index"
+        cols="12" sm="6" md="4" lg="3"
+        class="d-flex justify-center"
+      >
+        <v-card class="mx-2 servicio-card" elevation="3">
+          <v-card-title class="text-center">
+            <v-icon class="display-6 text-primary mb-3">{{ servicio.icono }}</v-icon>
+          </v-card-title>
+          <v-card-subtitle class="text-center">{{ servicio.titulo }}</v-card-subtitle>
+          <v-card-text class="text-center">{{ servicio.descripcion }}</v-card-text>
+        </v-card>
+      </v-col>
+    </v-row>
+  </v-container>
+</template>
+
+<script setup>
+const servicios = [
+  { titulo: 'Consulta General', descripcion: 'Atención médica primaria y seguimiento.', icono: 'mdi-heart-pulse' },
+  { titulo: 'Pediatría', descripcion: 'Cuidado integral de los niños.', icono: 'mdi-bandaid' },
+  { titulo: 'Laboratorio Clínico', descripcion: 'Análisis clínicos para diagnóstico.', icono: 'mdi-eyedropper' },
+  { titulo: 'Radiología', descripcion: 'Rayos X, ecografías y más.', icono: 'mdi-x-ray' },
+  { titulo: 'Emergencias', descripcion: 'Atención inmediata las 24h.', icono: 'mdi-alert-circle' },
+  { titulo: 'Odontología', descripcion: 'Salud y estética dental.', icono: 'mdi-tooth' },
+  { titulo: 'Farmacia', descripcion: 'Medicamentos y orientación farmacéutica.', icono: 'mdi-pill' }
+]
+</script>
+
+<style scoped>
+.servicios-section {
+  background-color: #f8f9fa;
+}
+
+.scroll-wrapper {
+  display: flex;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+}
+
+.servicio-card {
+  width: 250px;
+  border-radius: 0.75rem;
+  background-color: #ffffff;
+  transition: transform 0.2s ease;
+}
+
+.servicio-card:hover {
+  transform: scale(1.03);
+}
+</style>

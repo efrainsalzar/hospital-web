@@ -2,18 +2,16 @@
   <header>
     <nav class="navbar">
       <div class="logo">
-        <h1>Hospital XYZ</h1>
+        <h1><router-link to="/">Hospital XYZ</router-link></h1>
       </div>
       <ul class="nav-links">
-        <li><router-link to="/">Inicio</router-link></li>
         <li><router-link to="/service">Servicios</router-link></li>
         <li><router-link to="/about">Nosotros</router-link></li>
         <li><router-link to="/notice">Noticias</router-link></li>
         <li><router-link to="/contact">Contacto</router-link></li>
         
-        <!-- Ícono de buscador -->
         <li>
-          <i class="bi bi-search search-icon"></i>
+          Logo
         </li>
       </ul>
     </nav>
