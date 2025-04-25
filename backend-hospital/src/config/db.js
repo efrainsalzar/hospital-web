@@ -1,20 +1,30 @@
-const mysql = require('mysql2');  // Usamos mysql2 para promesas y conexiones más eficientes
+const mysql = require('mysql2/promise');
 
-// Configuración de la conexión a la base de datos
-const db = mysql.createConnection({
+// Configuración de la conexión MySQL
+const dbConfig = {
   host: 'localhost',
-  user: 'root',       // Usuario de la base de datos
-  password: '',       // Contraseña si es necesario
-  database: 'hospital' // Nombre de la base de datos
-});
+  user: 'root',     // Tu usuario de MySQL (predeterminado en XAMPP)
+  password: '',     // Tu contraseña (vacía por defecto en XAMPP)
+  database: 'hospital'
+};
 
-// Verificación de la conexión
-db.connect((err) => {
-  if (err) {
-    console.error('Error al conectar a la base de datos:', err.stack);
-    return;
+// Crear pool de conexiones para mejor rendimiento
+const pool = mysql.createPool(dbConfig);
+
+// Función para probar la conexión
+async function testConnection() {
+  try {
+    const connection = await pool.getConnection();
+    console.log('Conexión a MySQL establecida correctamente');
+    connection.release();
+    return true;
+  } catch (error) {
+    console.error('Error al conectar a MySQL:', error);
+    return false;
   }
-  console.log('Conectado a la base de datos MySQL como id ' + db.threadId);
-});
+}
 
-module.exports = db;
+module.exports = {
+  pool,
+  testConnection
+};
