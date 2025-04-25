@@ -16,6 +16,9 @@
           <v-card-text class="text-center">{{ servicio.descripcion }}</v-card-text>
         </v-card>
       </v-col>
+      <v-col cols="12" class="text-center">
+        <v-btn color="primary" class="mt-4">Ver Todos los Servicios</v-btn>
+      </v-col>
     </v-row>
   </v-container>
 </template>
@@ -39,6 +42,7 @@ const servicios = [
 
 .scroll-wrapper {
   display: flex;
+  justify-content: center;
   overflow-x: auto;
   padding-bottom: 1rem;
 }

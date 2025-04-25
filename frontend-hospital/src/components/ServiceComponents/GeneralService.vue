@@ -1,5 +1,5 @@
 <template>
-    <section class="servicios-container">
+    <v-container class="servicios-container" >
       <div
         v-for="(servicio, index) in servicios"
         :key="index"
@@ -11,7 +11,7 @@
         <a :href="servicio.link || '#'" class="titulo">{{ servicio.titulo }}</a>
         <div class="descripcion">{{ servicio.descripcion }}</div>
       </div>
-    </section>
+    </v-container>
   </template>
   
   <script>

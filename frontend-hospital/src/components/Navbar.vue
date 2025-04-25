@@ -1,8 +1,8 @@
 <template>
-  <header>
+  <header class="fixed-header">
     <nav class="navbar">
       <div class="logo">
-        <h1><router-link to="/">Hospital XYZ</router-link></h1>
+        <router-link to="/">Hospital USFX</router-link>
       </div>
       <ul class="nav-links">
         <li><router-link to="/service">Servicios</router-link></li>
@@ -10,7 +10,7 @@
         <li><router-link to="/notice">Noticias</router-link></li>
         <li><router-link to="/contact">Contacto</router-link></li>
         
-        <li>
+        <li class="text-white">
           Logo
         </li>
       </ul>
@@ -24,33 +24,37 @@
 
 <style scoped>
 /* Estilos del Navbar */
-header {
+
+.fixed-header {
+  top: 0;
+  left: 0;
+  width: 100%;
   background-color: #16213e;
   padding: 1rem 2rem;
+  position: fixed;
+  z-index: 999; /* Asegura que esté por encima del contenido */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Sombra opcional para elegancia */
 }
 
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 60px;
 }
 
 .logo {
+  
   display: flex;
   align-items: center;
 }
-
-.logo-img {
-  width: 40px;
-  height: 40px;
-  margin-right: 10px;
-}
-
-h1 {
+.logo a {
+  text-decoration: none;
   color: #ffffff;
   font-size: 1.5rem;
-  margin: 0;
+  font-weight: bold;
 }
+
 
 .nav-links {
   list-style-type: none;
@@ -71,7 +75,9 @@ h1 {
 .nav-links a:hover {
   color: #7646cf;
 }
-
+.logo a:hover {
+  color: #7646cf;
+}
 /* Responsive: Menú en pantallas pequeñas */
 @media (max-width: 768px) {
   .nav-links {

@@ -7,6 +7,9 @@ const vuetify = createVuetify({
   theme: {
     defaultTheme: 'light',
   },
+  icons: {
+    iconfont: 'mdi', // 'mdi' || 'mdiSvg'
+  },
 })
 
 export default vuetify

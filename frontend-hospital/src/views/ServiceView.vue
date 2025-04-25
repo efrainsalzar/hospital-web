@@ -1,11 +1,11 @@
 <template>
   <main>
-    <GeneralServices />
+    <GeneralService />
     <!-- otras secciones -->
   </main>
 </template>
 
 <script setup>
-import GeneralServices from '@/components/ServiceComponents/GeneralServices.vue';
+import GeneralService from '@/components/ServiceComponents/GeneralService.vue';
 
 </script>
