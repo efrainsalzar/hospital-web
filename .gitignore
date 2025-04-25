@@ -16,9 +16,9 @@ logs
 npm-debug.log*
 
 # Local env files
-.env
-.env.local
-.env.*.local
+#.env
+#.env.local
+#.env.*.local
 
 # IDEs and editors
 .vscode/
