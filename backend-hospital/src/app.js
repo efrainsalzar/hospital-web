@@ -1,14 +1,22 @@
 const express = require('express');
+const cors = require('cors');
 const { createHandler } = require('graphql-http/lib/use/express');
 const schema = require('./graphql/schema');
 const resolvers = require('./graphql/resolvers');
 const { testConnection } = require('./config/db');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 
 // Middleware para parsear JSON
 app.use(express.json());
+
+// --- Usa cors ---
+app.use(cors({
+  origin: 'http://localhost:5173', // Permite solo tu frontend
+  methods: ['POST', 'GET', 'OPTIONS'],
+  credentials: true
+}));
 
 // Probar la conexión a la base de datos al iniciar
 (async () => {
