@@ -1,4 +1,7 @@
 <template>
+  <v-main>
+
+  
   <div class="users-container">
     <h2>Lista de Usuarios</h2>
     
@@ -32,6 +35,7 @@
       </table>
     </div>
   </div>
+</v-main>
 </template>
 
 <script>

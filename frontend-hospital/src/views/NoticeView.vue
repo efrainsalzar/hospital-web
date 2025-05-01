@@ -1,8 +1,8 @@
 <template>
-  <main>
+  <v-main>
     <GeneralNotice />
     <!-- otras secciones -->
-  </main>
+  </v-main>
 </template>
 
 <script setup>

@@ -1,8 +1,8 @@
 <template>
-  <main>
+  <v-main>
     <GeneralService />
     <!-- otras secciones -->
-  </main>
+  </v-main>
 </template>
 
 <script setup>

@@ -1,11 +1,10 @@
 <template>
-  <main>
+  <v-main>
     <Carousel />
     <About />
     <Services />
     <Map />
-    <!-- otras secciones -->
-  </main>
+  </v-main>
 </template>
 
 <script setup>
