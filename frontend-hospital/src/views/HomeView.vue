@@ -1,6 +1,6 @@
 <template>
   <v-main>
-    <Carousel />
+    <Presentacion />
     <Boxes />
     <About />
     <Services />
@@ -9,7 +9,7 @@
 </template>
 
 <script setup>
-import Carousel from '@/components/HomeComponents/Carousel.vue'
+import Presentacion from '@/components/HomeComponents/Presentacion.vue'
 import About from '@/components/HomeComponents/About.vue';
 import Services from '@/components/HomeComponents/Services.vue';
 import Map from '@/components/HomeComponents/Map.vue';

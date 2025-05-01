@@ -1,5 +1,5 @@
 <template>
-    <v-container class="pa-0">
+    <v-container class="py-0">
       <v-row justify="center" align="stretch" class="ma-0">
         <!-- Reutilización para los 3 cuadros -->
         <v-col
