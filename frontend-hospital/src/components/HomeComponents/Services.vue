@@ -1,60 +1,70 @@
 <template>
-  <v-container class="py-5 servicios-section">
-    <h2 class="mb-4 text-center">Nuestros Servicios</h2>
-    <v-row class="scroll-wrapper d-flex overflow-auto pb-3">
-      <v-col
-        v-for="(servicio, index) in servicios"
-        :key="index"
-        cols="12" sm="6" md="4" lg="3"
-        class="d-flex justify-center"
-      >
-        <v-card class="mx-2 servicio-card" elevation="3">
-          <v-card-title class="text-center">
-            <v-icon class="display-6 text-primary mb-3">{{ servicio.icono }}</v-icon>
-          </v-card-title>
-          <v-card-subtitle class="text-center">{{ servicio.titulo }}</v-card-subtitle>
-          <v-card-text class="text-center">{{ servicio.descripcion }}</v-card-text>
-        </v-card>
-      </v-col>
-      <v-col cols="12" class="text-center">
-        <v-btn color="primary" class="mt-4">Ver Todos los Servicios</v-btn>
-      </v-col>
-    </v-row>
+  <v-container fluid class="contenido-primary">
+    <v-container class="contenido py-0">
+      <v-row fluid>
+        <v-col class="mb-md-0">
+          <div class="text-white text-h4 font-weight-bold mb-4">Nuestros Servicios</div>
+        </v-col>
+      </v-row>
+      <v-row justify="center" align="stretch" class="ma-0 d-flex mt-10">
+        <!-- Tarjetas dinámicas -->
+        <v-col
+          v-for="(item, index) in cards"
+          :key="index"
+          cols="12"
+          sm="6"
+          md="3"
+          class="d-flex"
+          
+        >
+          <v-card class="card-hover flex-grow-1">
+            <v-img :src="item.image" max-width="100%" height="183"></v-img>
+            <v-card-title class="text-center">{{ item.title }}</v-card-title>
+          </v-card>
+        </v-col>
+
+        <!-- Cuarta tarjeta con fondo transparente con texto y botón -->
+        <v-col cols="12" sm="6" md="3">
+          <v-card class="text-white pa-3 bg-transparent" style="border:none; box-shadow: none;">
+            <div class="text-h6 font-weight-bold mb-3">Un enfoque centrado en la salud</div>
+            <p class="text-body-1">
+              En nuestro hospital, trabajamos con compromiso y pasión para ofrecer atención médica integral, 
+              con tecnología moderna y un equipo de profesionales altamente capacitados.
+            </p>
+            <v-btn width="100%" color="primary" class="mt-4" to="/about">Ver más</v-btn>
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-container>
   </v-container>
 </template>
 
 <script setup>
-const servicios = [
-  { titulo: 'Consulta General', descripcion: 'Atención médica primaria y seguimiento.', icono: 'mdi-heart-pulse' },
-  { titulo: 'Pediatría', descripcion: 'Cuidado integral de los niños.', icono: 'mdi-bandaid' },
-  { titulo: 'Laboratorio Clínico', descripcion: 'Análisis clínicos para diagnóstico.', icono: 'mdi-eyedropper' },
-  { titulo: 'Radiología', descripcion: 'Rayos X, ecografías y más.', icono: 'mdi-x-ray' },
-  { titulo: 'Emergencias', descripcion: 'Atención inmediata las 24h.', icono: 'mdi-alert-circle' },
-  { titulo: 'Odontología', descripcion: 'Salud y estética dental.', icono: 'mdi-tooth' },
-  { titulo: 'Farmacia', descripcion: 'Medicamentos y orientación farmacéutica.', icono: 'mdi-pill' }
+const cards = [
+  {
+    title: 'Pediatría',
+    image: new URL('@/assets/images/serviciosHospital.png', import.meta.url).href
+  },
+  {
+    title: 'Cirugía General',
+    image: new URL('@/assets/images/serviciosHospital.png', import.meta.url).href
+  },
+  {
+    title: 'Emergencias',
+    image: new URL('@/assets/images/serviciosHospital.png', import.meta.url).href  }
 ]
 </script>
 
 <style scoped>
-.servicios-section {
-  background-color: #f8f9fa;
+.contenido-primary {
+  background: #283593;
+  padding: 70px 0;
+}
+.contenido {
+  max-width: 1200px;
+}
+.card-hover {
+  border-bottom: 6px solid #4CAF50;
 }
 
-.scroll-wrapper {
-  display: flex;
-  justify-content: center;
-  overflow-x: auto;
-  padding-bottom: 1rem;
-}
-
-.servicio-card {
-  width: 250px;
-  border-radius: 0.75rem;
-  background-color: #ffffff;
-  transition: transform 0.2s ease;
-}
-
-.servicio-card:hover {
-  transform: scale(1.03);
-}
 </style>

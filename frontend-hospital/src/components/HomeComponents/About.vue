@@ -1,6 +1,6 @@
 <template>
-  <v-container class="mt-10 mb-10 px-8">
-    <v-row class="d-flex justify-center">
+  <v-container class="contenido my-10">
+    <v-row class="d-flex justify-space-between">
       <!-- Texto -->
       <v-col cols="12" md="6" class="mb-6 mb-md-0">
         <div class="text-h4 font-weight-bold mb-4">Acerca del Hospital</div>
@@ -11,10 +11,11 @@
         style="border-bottom: 4px solid #4CAF50; top: -5px;">Leer más</v-btn>
       </v-col>
 
-      <!-- Imagen -->
-      <v-col cols="12" md="6" class="text-center mb-6 mb-md-0">
-        <v-img :src="hospitalImage" alt="Hospital" max-width="100%" max-height="300" contain></v-img>
+      <!-- Imagen a la derecha de su contenedor-->
+      <v-col class="d-flex justify-end">
+        <v-img :src="hospitalImage" alt="Hospital"></v-img>
       </v-col>
+
     </v-row>
   </v-container>
 </template>
@@ -24,4 +25,7 @@ const hospitalImage = new URL('@/assets/images/hospital1.jpg', import.meta.url).
 </script>
 
 <style scoped>
+.contenido{
+  max-width: 1200px;
+}
 </style>

@@ -1,5 +1,5 @@
 <template>
-    <v-container class="py-0">
+    <v-container class="contenido py-0">
       <v-row justify="center" align="stretch" class="ma-0">
         <!-- Reutilización para los 3 cuadros -->
         <v-col
@@ -70,6 +70,10 @@
   </script>
   
   <style scoped>
+
+.contenido{
+  max-width: 1200px;
+}
   /* Agregar efecto hover a las tarjetas */
   .card-hover {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
