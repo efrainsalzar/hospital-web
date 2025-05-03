@@ -84,9 +84,9 @@
   }
   .service-card {
     border-radius: 8px;
-    border: 1px solid #e0e0e0;
+    background: #f4f4f4;
     height: 400px;
-    width: 350px;
+    max-width:330px;
     transition:0.6s ease, transform 0.6s ease;
   }
   .icon-card {
@@ -98,6 +98,5 @@
   .service-card:hover {
     background-color: #283593;
     color: white; 
-    transform: scale(1.02); 
   }
   </style>
