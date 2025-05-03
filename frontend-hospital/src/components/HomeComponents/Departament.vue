@@ -3,7 +3,7 @@
     <v-container class="contenido py-0">
       <v-row fluid>
         <v-col class="mb-md-0">
-          <div class="text-white text-h4 font-weight-bold mb-4">Nuestros Servicios</div>
+          <div class="text-white text-h4 font-weight-bold mb-4">Nuestro Departamento de Medicos</div>
         </v-col>
       </v-row>
       <v-row justify="center" align="stretch" class="ma-0 d-flex mt-10">
@@ -18,8 +18,9 @@
           
         >
           <v-card class="card-hover flex-grow-1">
-            <v-img :src="item.image" max-width="100%" height="183"></v-img>
-            <v-card-title class="text-center">{{ item.title }}</v-card-title>
+            <v-img :src="item.image" width="100%"  height="180" cover></v-img>
+            <v-card-title class="text-center font-weight-bold mt-5">{{ item.dep_title }}</v-card-title>
+            <v-card-subtitle class="text-center">{{ item.medic }}</v-card-subtitle>
           </v-card>
         </v-col>
 
@@ -42,16 +43,19 @@
 <script setup>
 const cards = [
   {
-    title: 'Pediatría',
-    image: new URL('@/assets/images/serviciosHospital.png', import.meta.url).href
+    dep_title: 'Pediatría',
+    medic: "Dr. Juan Pérez",
+    image: new URL('@/assets/images/preguntas.webp', import.meta.url).href
   },
   {
-    title: 'Cirugía General',
-    image: new URL('@/assets/images/serviciosHospital.png', import.meta.url).href
+    dep_title: 'Ginecología',
+    medic: "Dr. Ana López",
+    image: new URL('@/assets/images/ginecologia.webp', import.meta.url).href
   },
   {
-    title: 'Emergencias',
-    image: new URL('@/assets/images/serviciosHospital.png', import.meta.url).href  }
+    dep_title: 'Cardiología',
+    medic: "Dr. Carlos Martínez",
+    image: new URL('@/assets/images/cirugia.webp', import.meta.url).href  }
 ]
 </script>
 

@@ -3,15 +3,15 @@
     <Presentacion />
     <Boxes />
     <About />
-    <Services />
-    <Map />
+    <Departament />
+    <Service />
   </v-main>
 </template>
 
 <script setup>
 import Presentacion from '@/components/HomeComponents/Presentacion.vue'
 import About from '@/components/HomeComponents/About.vue';
-import Services from '@/components/HomeComponents/Services.vue';
-import Map from '@/components/HomeComponents/Map.vue';
+import Departament from '@/components/HomeComponents/Departament.vue';
+import Service from '@/components/HomeComponents/Service.vue';
 import Boxes from '@/components/HomeComponents/Boxes.vue';
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <v-container class="contenido my-10">
+  <v-container class="contenido py-10">
     <v-row class="d-flex justify-space-between">
       <!-- Texto -->
       <v-col cols="12" md="6" class="mb-6 mb-md-0">
@@ -12,8 +12,8 @@
       </v-col>
 
       <!-- Imagen a la derecha de su contenedor-->
-      <v-col class="d-flex justify-end">
-        <v-img :src="hospitalImage" alt="Hospital"></v-img>
+      <v-col class="d-flex" cols="12" md="5">
+        <v-img :src="hospitalImage" alt="Hospital" style="top:-60px;"></v-img>
       </v-col>
 
     </v-row>
@@ -21,7 +21,7 @@
 </template>
 
 <script setup>
-const hospitalImage = new URL('@/assets/images/hospital1.jpg', import.meta.url).href;
+const hospitalImage = new URL('@/assets/images/doctores.webp', import.meta.url).href;
 </script>
 
 <style scoped>

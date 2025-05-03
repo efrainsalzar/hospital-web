@@ -1,7 +1,7 @@
 <template>
-  <v-footer class="text-white py-6" style="background-color: #101820;">
-    <v-container>
-      <v-row>
+  <v-footer fluid class="text-white py-6" style="background-color: #101820;">
+    <v-container class="contenido">
+      <v-row class="pb-15">
 
         <!-- Descripción institucional -->
         <v-col cols="12" md="3">
@@ -84,6 +84,9 @@ const footerData = {
 </script>
 
 <style scoped>
+.contenido {
+  max-width: 1200px;
+}
 .footer-links {
   list-style: none;
   padding: 0;

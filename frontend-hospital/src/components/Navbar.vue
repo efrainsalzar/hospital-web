@@ -1,5 +1,5 @@
 <template>
-  <div>
+
     <!-- Top Bar with Emergency Contact -->
     <v-app-bar color="#263477"density="compact"height="45"  scroll-behavior="hide" scroll-threshold="50">
       <v-container class="d-flex justify-end">
@@ -59,7 +59,7 @@
         ></v-list-item>
       </v-list>
     </v-navigation-drawer>
-  </div>
+
 </template>
 
 <script setup>
