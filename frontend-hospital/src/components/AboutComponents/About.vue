@@ -99,7 +99,7 @@ const infoCards = ref([
     lines: [
       { day: 'Lunes – Viernes', time: '7:00 – 19:00' },
       { day: 'Sábado', time: '8:00 – 14:00' },
-      { day: 'Domingo (Emergencias)', time: '24 horas' }
+      { day: 'Domingo', time: '24 horas' }
     ]
   },
   {

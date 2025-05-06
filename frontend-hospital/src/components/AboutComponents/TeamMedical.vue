@@ -14,7 +14,7 @@
             <v-img
               :src="medico.foto || fotoPorDefecto"
               alt="Foto del médico"
-              height="200"
+              height="150"
               cover
             ></v-img>
             <v-card-title class="text-center text-h6">{{ medico.nombre }}</v-card-title>
@@ -127,6 +127,7 @@
   .medico-card {
     border-radius: 16px;
     max-width: 200px;
+    max-height: 300px;
   }
   </style>
   

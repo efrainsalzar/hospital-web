@@ -12,7 +12,7 @@
           <v-card
             color="#283593"
             class="text-white py-4 px-9 d-flex flex-column justify-space-between fill-height card-hover"
-            style="border-bottom: 6px solid #4CAF50; top: -60px; width: 100%;"
+            style="border-bottom: 6px solid #4CAF50; top: -60px; max-width:350px ;"
           >
             <div class="text-center">
               <v-icon size="48" class="mb-2">{{ item.icon }}</v-icon>
@@ -76,6 +76,7 @@
 }
   /* Agregar efecto hover a las tarjetas */
   .card-hover {
+
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
   
