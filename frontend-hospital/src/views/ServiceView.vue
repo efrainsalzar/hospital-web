@@ -1,13 +1,13 @@
 <template>
   <v-main>
     <Home />
-    <GeneralService />
+    <CardService />
     <!-- otras secciones -->
   </v-main>
 </template>
 
 <script setup>
 import Home from '@/components/ServiceComponents/Home.vue';
-import GeneralService from '@/components/ServiceComponents/GeneralService.vue';
+import CardService from '@/components/ServiceComponents/CardService.vue';
 
 </script>
