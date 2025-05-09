@@ -11,10 +11,12 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@graphql-tools/merge": "^9.0.24",
+    "@graphql-tools/schema": "^9.0.19",
     "cors": "^2.8.5",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
-    "graphql": "^15.10.1",
+    "graphql": "^16.8.1",
     "graphql-http": "^1.22.4",
     "graphql-tag": "^2.12.6",
     "mysql2": "^3.14.0"
