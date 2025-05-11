@@ -1,146 +1,94 @@
 <template>
   <v-main>
+    <v-container>
+      <h1>Lista de Doctores</h1>
 
-  
-  <div class="users-container">
-    <h2>Lista de Usuarios</h2>
-    
-    <!-- Indicador de carga -->
-    <div v-if="loading" class="loading">
-      Cargando usuarios...
-    </div>
-    
-    <!-- Mensaje de error -->
-    <div v-else-if="error" class="error">
-      Error al cargar usuarios: {{ error }}
-    </div>
-    
-    <!-- Tabla de usuarios -->
-    <div v-else class="users-table">
-      <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Nombre</th>
-            <th>Correo</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="user in users" :key="user.id">
-            <td>{{ user.id }}</td>
-            <td>{{ user.name }}</td>
-            <td>{{ user.email }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</v-main>
+      <!-- Mensaje de carga -->
+      <div v-if="loading">Cargando doctores...</div>
+
+      <!-- Mensaje de error -->
+      <div v-if="error">Hubo un error al cargar los doctores. Intenta nuevamente.</div>
+
+      <!-- Lista de doctores -->
+      <div v-if="doctors && doctors.length > 0">
+        <ul>
+          <li v-for="doctor in doctors" :key="doctor.id">
+            <h3>{{ doctor.nombre }}</h3>
+            <img 
+            :src="getDoctorImage(doctor.foto_url)" 
+            :alt="`Foto de ${doctor.nombre}`" 
+            @error="onImageError" />
+
+            <p><strong>Especialidad:</strong> {{ doctor.especialidad_nombre }}</p>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Si no hay doctores -->
+      <div v-else>
+        <p>No se encontraron doctores.</p>
+      </div>
+    </v-container>
+  </v-main>
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
-  name: 'UserDisplay',
   data() {
     return {
-      users: [],
+      doctors: [],
       loading: true,
-      error: null
-    }
+      error: false,
+      fotoPorDefecto: new URL('@/assets/images/default_profile.jpg', import.meta.url).href
+    };
   },
+
   mounted() {
-    // Cargar los datos cuando el componente se monte
-    this.fetchUsers();
+    this.fetchDoctors();
   },
   methods: {
-    async fetchUsers() {
-      this.loading = true;
+    async fetchDoctors() {
       try {
-        // La URL de tu API GraphQL
-        const response = await fetch('http://localhost:4000/graphql', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            query: `
-              {
-                getUsers {
-                  id
-                  name
-                  email
-                }
-              }
-            `
-          }),
-        });
-
-        const result = await response.json();
-        
-        // Verificar si hay errores en la respuesta
-        if (result.errors) {
-          throw new Error(result.errors[0].message);
-        }
-        
-        // Guardar los usuarios en el estado del componente
-        this.users = result.data.getUsers;
+        const response = await axios.get('http://localhost:3000/api/doctores/completo');
+        this.doctors = response.data;
         this.loading = false;
-      } catch (err) {
-        console.error('Error fetching users:', err);
-        this.error = err.message;
+      } catch (error) {
+        console.error('Error al cargar los doctores:', error);
+        this.error = true;
         this.loading = false;
       }
-    }
-  }
+    },
+    onImageError(event) {
+      event.target.src = fotoPorDefecto;
+    },
+    getDoctorImage(fotoUrl) {
+  return fotoUrl && fotoUrl.trim() !== '' ? fotoUrl : this.fotoPorDefecto;
 }
+
+  }
+};
 </script>
 
 <style scoped>
-.users-container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-  font-family: Arial, sans-serif;
+img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
-h2 {
-  color: #333;
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
   margin-bottom: 20px;
 }
 
-.loading, .error {
-  padding: 15px;
-  margin-bottom: 20px;
-  border-radius: 4px;
-}
-
-.loading {
-  background-color: #e8f4f8;
-  color: #0288d1;
-}
-
-.error {
-  background-color: #ffebee;
-  color: #c62828;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-th, td {
-  text-align: left;
-  padding: 12px;
-  border-bottom: 1px solid #ddd;
-}
-
-th {
-  background-color: #f5f5f5;
-  font-weight: bold;
-}
-
-tr:hover {
-  background-color: #f5f5f5;
+h3 {
+  margin: 10px 0;
 }
 </style>

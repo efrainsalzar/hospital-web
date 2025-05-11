@@ -1,34 +1,22 @@
-const mysql = require('mysql2/promise');
-const dotenv = require('dotenv');
+// src/config/db.js
+const mysql = require('mysql2');
+require('dotenv').config(); // Para leer variables del archivo .env
 
-dotenv.config();
-
-
-// Configuración de la conexión MySQL
-const dbConfig = {
+// Crear la conexión a la base de datos
+const connection = mysql.createConnection({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
-  database: process.env.DB_NAME
-};
+  database: process.env.DB_NAME,
+});
 
-// Crear pool de conexiones para mejor rendimiento
-const pool = mysql.createPool(dbConfig);
-
-// Función para probar la conexión
-async function testConnection() {
-  try {
-    const connection = await pool.getConnection();
-    console.log('Conexión a MySQL establecida correctamente');
-    connection.release();
-    return true;
-  } catch (error) {
-    console.error('Error al conectar a MySQL:', error);
-    return false;
+// Conectar a la base de datos
+connection.connect((err) => {
+  if (err) {
+    console.error('Error al conectar con la base de datos:', err);
+    return;
   }
-}
+  console.log('Conexión exitosa a la base de datos');
+});
 
-module.exports = {
-  pool,
-  testConnection
-};
+module.exports = connection;
