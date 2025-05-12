@@ -1,12 +1,13 @@
 <template>
   <v-main>
     <Home />
-    <GeneralNotice />
+    <News />
     <!-- otras secciones -->
   </v-main>
 </template>
 
 <script setup>
 import Home from '@/components/NoticeComponents/Home.vue';
-import GeneralNotice from '@/components/NoticeComponents/GeneralNotice.vue';
+import News from '@/components/NoticeComponents/News.vue';
+
 </script>
