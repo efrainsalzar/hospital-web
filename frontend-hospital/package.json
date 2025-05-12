@@ -11,9 +11,9 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
-    "@fawmi/vue-google-maps": "^0.9.79",
     "@mdi/font": "^7.4.47",
     "axios": "^1.9.0",
+    "leaflet": "^1.9.4",
     "sass": "^1.87.0",
     "vite-plugin-vuetify": "^2.1.1",
     "vue": "^3.5.13",
@@ -24,6 +24,7 @@
     "@eslint/js": "^9.22.0",
     "@vitejs/plugin-vue": "^5.2.3",
     "@vue/eslint-config-prettier": "^10.2.0",
+    "depcheck": "^1.4.7",
     "eslint": "^9.22.0",
     "eslint-plugin-vue": "~10.0.0",
     "globals": "^16.0.0",

@@ -38,16 +38,36 @@
           </div>
 
           <!-- Working Hours -->
-          <div class="sidebar_section mb-6">
-            <div class="sidebar_section_title">
-              <div class="sidebar_title">Working Hours</div>
-            </div>
-            <ul>
-              <li v-for="(hour, i) in workingHours" :key="i" class="d-flex justify-space-between">
-                <span>{{ hour.day }}</span><span>{{ hour.hours }}</span>
-              </li>
-            </ul>
-          </div>
+                  <v-card
+          v-for="(card, i) in infoCards"
+          :key="i"
+          class="info-card mb-4"
+          color="indigo-darken-3"
+          elevation="3"
+        >
+          <v-card-item>
+            
+            <v-card-title class="text-white text-h6">{{ card.title }}</v-card-title>
+          </v-card-item>
+          <v-card-text class="text-white">
+            <template v-if="card.lines">
+              <div
+                v-for="(line, j) in card.lines"
+                :key="j"
+                class="d-flex justify-space-between mb-2"
+              >
+                <span>{{ line.day }}</span>
+                <span>{{ line.time }}</span>
+              </div>
+            </template>
+            <template v-else>
+              <p v-if="card.phone" class="text-h5  text-light-green-accent-3 mb-2">
+                {{ card.phone }}
+              </p>
+              <p v-for="(text, j) in card.description" :key="j">{{ text }}</p>
+            </template>
+          </v-card-text>
+        </v-card>
 
           <!-- Ad -->
           <div class="ad d-flex flex-column align-items-center justify-content-end">
@@ -79,12 +99,15 @@ const archives = [
   'February 2018',
   'March 2018',
 ]
-
-const workingHours = [
-  { day: 'Monday – Friday', hours: '8.00 – 19.00' },
-  { day: 'Saturday', hours: '9.30 – 17.00' },
-  { day: 'Sunday', hours: '9.30 – 15.00' },
-]
+const infoCards = ref([
+  {
+    title: 'Horario de Atención',
+    lines: [
+      { day: 'Lunes – Viernes', time: '7:00 – 19:00' },
+      { day: 'Sábado', time: '8:00 – 14:00' },
+      { day: 'Domingo', time: '24 horas' }
+    ]
+  }])
 
 const ad = {
   imagen: new URL('@/assets/images/cirugia.webp', import.meta.url).href,
@@ -149,5 +172,11 @@ const ad = {
   padding: 8px 16px;
   border-radius: 4px;
   text-decoration: none;
+}
+.info-card {
+  border-radius: 6px;
+  border-bottom: 4px solid #76ff03; /* Verde más natural */
+  padding: 5px 25px;
+  height: 200px;
 }
 </style>

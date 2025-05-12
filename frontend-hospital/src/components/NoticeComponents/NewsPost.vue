@@ -22,8 +22,8 @@
             <div class="news_info">
               <ul>
                 <li class="news_author"><span>By </span><a href="#">{{ post.author }}</a></li>
-                <li class="news_tags"><span>in </span><a href="#">{{ post.category }}</a></li>
-                <li class="news_comments"><a href="#">{{ post.comments }} Comments</a></li>
+                <li class="news_tags"><span>in </span>{{ post.category }}</li>
+                
               </ul>
             </div>
 
@@ -47,7 +47,6 @@ const newsPosts = [
     title: '10 Reasons to make a check up',
     author: 'Dr. William Smith',
     category: 'Therapy',
-    comments: 3,
     summary:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ante leo, finibus quis est ut, tempor tincidunt ipsum. Nam consequat semper sollicitudin. Aliquam nec dapibus massa.',
   },
@@ -67,8 +66,8 @@ const newsPosts = [
 }
 .news_image img {
   width: 100%;
-  height: auto;
-  display: block;
+  height: 280px;
+  object-fit: cover;
 }
 .news_date {
   position: absolute;

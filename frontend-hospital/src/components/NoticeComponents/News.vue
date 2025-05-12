@@ -23,5 +23,6 @@ import Sidebar from  '@/components/NoticeComponents/Sidebar.vue'
 .contenido {
   padding: 70px 0;
   max-width: 1200px;
+  
 }
 </style>
