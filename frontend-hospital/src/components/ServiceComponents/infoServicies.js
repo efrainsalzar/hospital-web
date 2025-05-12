@@ -9,7 +9,7 @@ const departamentosHospital = [
         horario: "Lunes a Viernes, 08:00 a 12:00",
         fichasDiarias: 20,
         doctores: ["Dra. Carla Sánchez", "Dr. Jorge Medina"],
-        imagen: new URL('@/assets/images/serviciosHospital.png', import.meta.url).href,
+        imagen: new URL('@/assets/images/servicios.jpg', import.meta.url).href,
         icon: 'mdi-baby-face'
         
       },
@@ -19,7 +19,7 @@ const departamentosHospital = [
         horario: "24 horas",
         fichasDiarias: 'S/N',
         doctores: ["Dra. Melisa Choque"],
-        imagen: new URL('@/assets/images/serviciosHospital.png', import.meta.url).href,
+        imagen: new URL('@/assets/images/servicios.jpg', import.meta.url).href,
         icon: 'mdi-hospital-building'
       },
       {
@@ -28,7 +28,7 @@ const departamentosHospital = [
         horario: "Lunes a Viernes, 08:00 a 14:00",
         fichasDiarias: 50,
         doctores: ["Enf. Luis Romero"],
-        imagen: new URL('@/assets/images/serviciosHospital.png', import.meta.url).href,
+        imagen: new URL('@/assets/images/servicios.jpg', import.meta.url).href,
         icon: 'mdi-syringe'
       }
     ]
@@ -43,7 +43,7 @@ const departamentosHospital = [
         horario: "Lunes a Viernes, 08:00 a 16:00",
         fichasDiarias: 25,
         doctores: ["Dra. Mariana Valdivia"],
-        imagen: new URL('@/assets/images/serviciosHospital.png', import.meta.url).href,
+        imagen: new URL('@/assets/images/servicios.jpg', import.meta.url).href,
         icon: 'mdi-syringe'
       },
       {
@@ -52,7 +52,7 @@ const departamentosHospital = [
         horario: "Martes y Jueves, 09:00 a 13:00",
         fichasDiarias: 15,
         doctores: ["Dra. Silvia Zambrana"],
-        imagen: new URL('@/assets/images/serviciosHospital.png', import.meta.url).href,
+        imagen: new URL('@/assets/images/servicios.jpg', import.meta.url).href,
         icon: 'mdi-baby-carriage'
       },
       {
@@ -61,7 +61,7 @@ const departamentosHospital = [
         horario: "24 horas",
         fichasDiarias: null,
         doctores: ["Dr. Iván Torrico"],
-        imagen: new URL('@/assets/images/serviciosHospital.png', import.meta.url).href,
+        imagen: new URL('@/assets/images/servicios.jpg', import.meta.url).href,
         icon: 'mdi-hospital-building'
       }
     ]
@@ -76,7 +76,7 @@ const departamentosHospital = [
         horario: "Lunes a Viernes, 08:00 a 12:00",
         fichasDiarias: 30,
         doctores: ["Dr. Ricardo Bustillos"],
-        imagen: new URL('@/assets/images/serviciosHospital.png', import.meta.url).href,
+        imagen: new URL('@/assets/images/servicios.jpg', import.meta.url).href,
         icon: 'mdi-stethoscope'
       },
       {
@@ -85,7 +85,7 @@ const departamentosHospital = [
         horario: "24 horas",
         fichasDiarias: null,
         doctores: ["Dra. Julia Rojas"],
-        imagen: new URL('@/assets/images/serviciosHospital.png', import.meta.url).href,
+        imagen: new URL('@/assets/images/servicios.jpg', import.meta.url).href,
         icon: 'mdi-hospital-building'
       }
     ]
@@ -100,7 +100,7 @@ const departamentosHospital = [
         horario: "Lunes a Viernes, 08:00 a 16:00",
         fichasDiarias: 10,
         doctores: ["Dr. Walter Camacho"],
-        imagen: new URL('@/assets/images/serviciosHospital.png', import.meta.url).href,
+        imagen: new URL('@/assets/images/servicios.jpg', import.meta.url).href,
         icon: 'mdi-scalpel'
       },
       {
@@ -109,7 +109,7 @@ const departamentosHospital = [
         horario: "Miércoles y Viernes, 08:00 a 14:00",
         fichasDiarias: 6,
         doctores: ["Dra. Lizeth Vargas"],
-        imagen: new URL('@/assets/images/serviciosHospital.png', import.meta.url).href,
+        imagen: new URL('@/assets/images/servicios.jpg', import.meta.url).href,
         icon: 'mdi-scalpel'
       }
     ]
@@ -124,7 +124,7 @@ const departamentosHospital = [
         horario: "Lunes a Viernes, 09:00 a 13:00",
         fichasDiarias: 15,
         doctores: ["Dr. Alberto Flores"],
-        imagen: new URL('@/assets/images/serviciosHospital.png', import.meta.url).href,
+        imagen: new URL('@/assets/images/servicios.jpg', import.meta.url).href,
         icon: 'mdi-heart-pulse',
       },
       {
@@ -133,7 +133,7 @@ const departamentosHospital = [
         horario: "Según programación",
         fichasDiarias: null,
         doctores: ["Dr. Erick Mendoza"],
-        imagen: new URL('@/assets/images/serviciosHospital.png', import.meta.url).href,
+        imagen: new URL('@/assets/images/servicios.jpg', import.meta.url).href,
         icon: 'mdi-heart-pulse',
       }
     ]
@@ -148,7 +148,7 @@ const departamentosHospital = [
         horario: "Lunes a Viernes, 08:00 a 12:00",
         fichasDiarias: 10,
         doctores: ["Dr. Mario Cárdenas"],
-        imagen: new URL('@/assets/images/serviciosHospital.png', import.meta.url).href,
+        imagen: new URL('@/assets/images/servicios.jpg', import.meta.url).href,
         icon: 'mdi-kidney'
       },
       {
@@ -157,7 +157,7 @@ const departamentosHospital = [
         horario: "Turnos programados, Lunes a Sábado",
         fichasDiarias: null,
         doctores: ["Lic. Maribel Ortega"],
-        imagen: new URL('@/assets/images/serviciosHospital.png', import.meta.url).href,
+        imagen: new URL('@/assets/images/servicios.jpg', import.meta.url).href,
         icon: 'mdi-kidney'
       }
     ]
@@ -172,7 +172,7 @@ const departamentosHospital = [
         horario: "Lunes a Viernes, 08:00 a 16:00",
         fichasDiarias: 40,
         doctores: ["Dr. Sergio Villarroel"],
-        imagen: new URL('@/assets/images/serviciosHospital.png', import.meta.url).href,
+        imagen: new URL('@/assets/images/servicios.jpg', import.meta.url).href,
         icon: 'mdi-radiology'
       }
     ]
@@ -187,7 +187,7 @@ const departamentosHospital = [
         horario: "Lunes a Sábado, 07:00 a 13:00",
         fichasDiarias: 100,
         doctores: ["Bioq. Ana Laura Morales"],
-        imagen: new URL('@/assets/images/serviciosHospital.png', import.meta.url).href,
+        imagen: new URL('@/assets/images/servicios.jpg', import.meta.url).href,
         icon: 'mdi-radiology'
       }
     ]
@@ -202,7 +202,7 @@ const departamentosHospital = [
         horario: "Lunes a Viernes, 08:00 a 14:00",
         fichasDiarias: 10,
         doctores: ["Psic. Daniela Ramos"],
-        imagen: new URL('@/assets/images/serviciosHospital.png', import.meta.url).href,
+        imagen: new URL('@/assets/images/servicios.jpg', import.meta.url).href,
         icon: 'mdi-brain'
       }
     ]
@@ -217,7 +217,7 @@ const departamentosHospital = [
         horario: "Lunes, Miércoles y Viernes, 09:00 a 13:00",
         fichasDiarias: 12,
         doctores: ["Lic. Pablo Arce"],
-        imagen: new URL('@/assets/images/serviciosHospital.png', import.meta.url).href,
+        imagen: new URL('@/assets/images/servicios.jpg', import.meta.url).href,
         icon: 'mdi-brain'
       }
     ]
@@ -232,7 +232,7 @@ const departamentosHospital = [
         horario: "Lunes a Sábado, 08:00 a 12:00",
         fichasDiarias: 20,
         doctores: ["Dra. Claudia Herrera"],
-        imagen: new URL('@/assets/images/serviciosHospital.png', import.meta.url).href,
+        imagen: new URL('@/assets/images/servicios.jpg', import.meta.url).href,
         icon: 'mdi-tooth'
       }
     ]

@@ -32,7 +32,7 @@
               En nuestro hospital, trabajamos con compromiso y pasión para ofrecer atención médica integral, 
               con tecnología moderna y un equipo de profesionales altamente capacitados.
             </p>
-            <v-btn width="100%" color="primary" class="mt-4" to="/about">Ver más</v-btn>
+            <v-btn class="boton mt-4" to="/about">Ver más</v-btn>
           </v-card>
         </v-col>
       </v-row>
@@ -70,5 +70,15 @@ const cards = [
 .card-hover {
   border-bottom: 6px solid #4CAF50;
 }
-
+.boton{
+    background-color: #ffffff;
+    text-size-adjust: 1rem;
+    font-weight: bold;
+    border-bottom: #28a745 2px solid;
+    transition: background-color 0.3s, color 0.3s;
+}
+.boton:hover{
+    background-color: #28a745;
+    color: white;
+}
 </style>
