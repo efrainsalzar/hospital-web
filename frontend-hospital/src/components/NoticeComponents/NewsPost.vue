@@ -102,7 +102,7 @@ const paginatedPosts = computed(() => {
 <style scoped>
 .news-post {
   background-color: #f8f9fa;
-  border-radius: 8px;
+
   overflow: hidden;
 }
 
@@ -121,7 +121,7 @@ const paginatedPosts = computed(() => {
   background-color: #2ecc71;
   color: #fff;
   padding: 8px 10px;
-  border-radius: 4px;
+  border-radius: 2px;
   text-align: center;
   font-weight: bold;
 }

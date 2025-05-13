@@ -33,7 +33,9 @@
       <!-- Working Hours -->
       <v-card v-for="(card, i) in infoCards" :key="i" class="info-card mb-4" color="indigo-darken-3" elevation="3">
         <v-card-item>
-
+          <v-card-icon class="text-white d-flex align-center justify-center pb-2">
+            <v-icon>mdi-clock-time-four</v-icon>
+          </v-card-icon>
           <v-card-title class="text-white text-h6">{{ card.title }}</v-card-title>
         </v-card-item>
         <v-card-text class="text-white">

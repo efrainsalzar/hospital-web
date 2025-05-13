@@ -28,14 +28,14 @@
                         <v-btn icon color="white" class="green-bg mr-4">
                             <v-icon>mdi-email-outline</v-icon>
                         </v-btn>
-                        <span>office@template.com</span>
+                        <span>contacto@hospital.com</span>
                     </div>
 
                     <div class="d-flex align-center mb-4">
                         <v-btn icon color="white" class="green-bg mr-4">
                             <v-icon>mdi-map-marker</v-icon>
                         </v-btn>
-                        <span>Main Str. no 45-46, b3, 56832, Los Angeles, CA</span>
+                        <span>Avenida Villar, Sucre - Bolivia</span>
                     </div>
                 </div>
             </v-col>
