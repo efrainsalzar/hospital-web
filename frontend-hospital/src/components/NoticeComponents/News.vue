@@ -1,14 +1,8 @@
 <template>
   <v-container class="contenido">
     <v-row class="d-flex justify-space-between">
-      <!-- Posts -->
-      
-        <NewsPost :posts="newsPosts" />
-
-      <!-- Sidebar -->
-
+        <NewsPost />
         <Sidebar />
-
     </v-row>
   </v-container>
 </template>
