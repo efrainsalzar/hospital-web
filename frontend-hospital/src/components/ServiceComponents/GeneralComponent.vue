@@ -65,6 +65,9 @@ const fetchServicios = async () => {
             const servicio = {
                 titulo: esp.nombre,
                 descripcion: esp.descripcion || 'Sin descripción disponible',
+                dias: esp.dias,
+                turno_m: esp.turno_m || 'Sin Horario',
+                turno_t: esp.turno_t || 'Sin Horario',
                 imagen: esp.imagen || defaultImage,
                 departamento: esp.departamento
             }

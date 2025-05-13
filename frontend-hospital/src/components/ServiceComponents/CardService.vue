@@ -6,6 +6,9 @@
     </v-card-title>
     <v-card-text class="text-body-2">
       <p class="descripcion mb-2">{{ servicio.descripcion }}</p>
+      <p>Horario: {{ servicio.dias }}</p>
+      <p>Manaña: {{ servicio.turno_m }}</p>
+      <p>Tarde: {{ servicio.turno_t }}</p>
     </v-card-text>
   </v-card>
 </template>
