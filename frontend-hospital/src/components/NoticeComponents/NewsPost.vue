@@ -15,12 +15,11 @@
 
       <div class="news-body">
         <h3 class="news-title">
-          <a href="#">{{ post.title }}</a>
+          <a>{{ post.title }}</a>
         </h3>
 
         <ul class="news-meta">
-          <li><span>By </span><a href="#">{{ post.author }}</a></li>
-          <li><span>in </span>{{ post.category }}</li>
+          <li><span>Por </span><a>{{ post.author }}</a></li>
         </ul>
 
         <p class="news-summary">{{ post.summary }}</p>
@@ -42,62 +41,52 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
+import axios from 'axios'
 
-// Lista de noticias (4 iguales como ejemplo)
-const newsPosts = [
-  {
-    imagen: new URL('@/assets/images/cirugia.webp', import.meta.url).href,
-    date: { day: '15', month: 'March' },
-    title: '10 Reasons to make a check up',
-    author: 'Dr. William Smith',
-    category: 'Therapy',
-    summary:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ante leo, finibus quis est ut, tempor tincidunt ipsum.',
-  },
-  {
-    imagen: new URL('@/assets/images/cirugia.webp', import.meta.url).href,
-    date: { day: '16', month: 'March' },
-    title: 'Importance of Regular Exams',
-    author: 'Dr. Anna López',
-    category: 'Prevention',
-    summary:
-      'Aenean in urna facilisis, consequat erat at, lacinia felis. Pellentesque vitae elit nec turpis consectetur laoreet.',
-  },
-  {
-    imagen: new URL('@/assets/images/cirugia.webp', import.meta.url).href,
-    date: { day: '17', month: 'March' },
-    title: 'Healthy Living Habits',
-    author: 'Dr. Susan Lee',
-    category: 'Wellness',
-    summary:
-      'Sed dignissim purus vel sem porttitor, et pretium augue eleifend. Vivamus sit amet nunc erat.',
-  },
-  {
-    imagen: new URL('@/assets/images/cirugia.webp', import.meta.url).href,
-    date: { day: '18', month: 'March' },
-    title: 'Understanding Mental Health',
-    author: 'Dr. Marco Ruiz',
-    category: 'Mental Health',
-    summary:
-      'Fusce a dolor ac nibh fermentum efficitur. Vestibulum sit amet dolor at nulla imperdiet ullamcorper.',
-  },
-]
+// Imagen por defecto
+const imagen_defecto = new URL('@/assets/images/cirugia.webp', import.meta.url).href
 
-// Control de página
+// Noticias obtenidas del backend
+const newsPosts = ref([])
+
+// Lógica para paginación
 const currentPage = ref(1)
 const itemsPerPage = 3
 
-// Computar cuántas páginas hay
-const totalPages = computed(() => Math.ceil(newsPosts.length / itemsPerPage))
+const totalPages = computed(() => Math.ceil(newsPosts.value.length / itemsPerPage))
 
-// Computar qué elementos mostrar
 const paginatedPosts = computed(() => {
   const start = (currentPage.value - 1) * itemsPerPage
   const end = start + itemsPerPage
-  return newsPosts.slice(start, end)
+  return newsPosts.value.slice(start, end)
+})
+
+// Obtener datos desde tu API al montar
+onMounted(async () => {
+  try {
+    const response = await axios.get('http://localhost:3000/api/noticias/completo') // Cambia al endpoint real
+
+    // Adaptar datos al formato que espera tu template
+    newsPosts.value = response.data.map(item => {
+      const fecha = new Date(item.fecha)
+      return {
+        title: item.titulo,
+        summary: item.contenido,
+        date: {
+          day: fecha.getDate().toString().padStart(2, '0'),
+          month: fecha.toLocaleString('es-ES', { month: 'short' }).toUpperCase()
+        },
+        author: item.doctor,
+        imagen: imagen_defecto // Usando la imagen por defecto
+      }
+    })
+  } catch (error) {
+    console.error('Error cargando noticias:', error)
+  }
 })
 </script>
+
 
 <style scoped>
 .news-post {

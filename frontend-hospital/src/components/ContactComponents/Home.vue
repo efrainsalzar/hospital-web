@@ -1,7 +1,7 @@
 <script setup>
 import Hero from '@/components/shared/Hero.vue';
 
-const image = new URL('@/assets/images/cirugia.webp', import.meta.url).href;
+const image = new URL('@/assets/images/news_3.webp', import.meta.url).href;
 </script>
 
 <template>
