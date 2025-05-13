@@ -1,32 +1,26 @@
-// src/models/especialidad_model.js
 const db = require('../config/db');
 
 // Obtener todas las especialidades
 const getAllEspecialidades = () => {
   return new Promise((resolve, reject) => {
-    db.query('SELECT * FROM especialidad', (err, results) => {
+    db.query('SELECT * FROM especialidades', (err, results) => {
       if (err) reject(err);
       resolve(results);
     });
   });
 };
 
-// Obtener una especialidad por ID
-const getEspecialidadById = (id) => {
-  return new Promise((resolve, reject) => {
-    db.query('SELECT * FROM especialidad WHERE id = ?', [id], (err, results) => {
-      if (err) reject(err);
-      resolve(results[0]);
-    });
-  });
-};
 
-// Crear una nueva especialidad
-const createEspecialidad = (especialidad) => {
+const getAllEspecialidadesComplete = () => {
   return new Promise((resolve, reject) => {
     db.query(
-      'INSERT INTO especialidad (nombre) VALUES (?)',
-      [especialidad.nombre],
+      ` SELECT  
+            d.nombre AS departamento,
+            e.nombre,
+            e.descripcion
+        FROM especialidades e
+        JOIN departamentos d ON e.id_departamento = d.id;
+      `,
       (err, results) => {
         if (err) reject(err);
         resolve(results);
@@ -35,34 +29,9 @@ const createEspecialidad = (especialidad) => {
   });
 };
 
-// Actualizar una especialidad
-const updateEspecialidad = (id, especialidad) => {
-  return new Promise((resolve, reject) => {
-    db.query(
-      'UPDATE especialidad SET nombre = ? WHERE id = ?',
-      [especialidad.nombre, id],
-      (err, results) => {
-        if (err) reject(err);
-        resolve(results);
-      }
-    );
-  });
-};
-
-// Eliminar una especialidad
-const deleteEspecialidad = (id) => {
-  return new Promise((resolve, reject) => {
-    db.query('DELETE FROM especialidad WHERE id = ?', [id], (err, results) => {
-      if (err) reject(err);
-      resolve(results);
-    });
-  });
-};
 
 module.exports = {
-  getAllEspecialidades,
-  getEspecialidadById,
-  createEspecialidad,
-  updateEspecialidad,
-  deleteEspecialidad,
+    getAllEspecialidades,
+    getAllEspecialidadesComplete
+
 };
