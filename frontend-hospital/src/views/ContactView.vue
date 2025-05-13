@@ -3,7 +3,6 @@
     <Home />
     <Form />
     <Map />
-    <!-- otras secciones -->
   </v-main>
 </template>
 

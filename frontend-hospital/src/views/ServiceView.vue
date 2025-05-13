@@ -3,7 +3,6 @@
     <Home />
     <CardService />
     <Cta />
-    <!-- otras secciones -->
   </v-main>
 </template>
 

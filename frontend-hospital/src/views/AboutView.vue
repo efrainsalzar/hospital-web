@@ -6,8 +6,6 @@
     <TeamMedical />
     <Valores />
     <Cta />
-    <!--<GeneralAbout />-->
-    
   </v-main>
 </template>
 

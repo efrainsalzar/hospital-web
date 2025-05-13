@@ -1,5 +1,5 @@
 <template>
-  <!-- Top Bar: Emergencias -->
+  <!-- Top Bar Emergencias -->
   <v-app-bar :color="topBar.color" density="compact" height="45" scroll-behavior="hide" scroll-threshold="50">
     <v-container class="d-flex justify-end text-caption font-weight-medium">
       {{ topBar.text }}
@@ -9,7 +9,6 @@
   <!-- Main Navigation -->
   <v-app-bar :color="navBar.color" elevation="1" height="90">
     <v-container class="d-flex align-center px-6">
-      
       <!-- Logo -->
       <router-link to="/" class="text-decoration-none d-flex flex-column">
         <div class="d-flex align-center">
@@ -22,11 +21,11 @@
 
       <v-spacer></v-spacer>
 
-      <!-- Desktop Navigation -->
+      <!-- Desktop Menu -->
       <div class="d-none d-md-flex">
         <v-btn
-          v-for="(item, index) in navItems"
-          :key="index"
+          v-for="(item, i) in menuItems"
+          :key="i"
           :to="item.to"
           variant="text"
           class="font-weight-medium"
@@ -41,12 +40,12 @@
     </v-container>
   </v-app-bar>
 
-  <!-- Drawer Mobile -->
+  <!-- Drawer Menu for Mobile -->
   <v-navigation-drawer v-model="drawer" temporary location="right">
     <v-list>
       <v-list-item
-        v-for="(item, index) in navItems"
-        :key="index"
+        v-for="(item, i) in menuItems"
+        :key="i"
         :to="item.to"
         :title="item.title"
       />
@@ -56,40 +55,18 @@
 
 <script setup>
 import { ref } from 'vue';
+import { layoutData } from './LayoutData';
 
 const drawer = ref(false);
 
-// Barra superior (emergencias)
-const topBar = {
-  color: '#263477',
-  text: 'Emergencias: +591 4-1234567'
-};
-
-// Barra principal (navbar)
-const navBar = {
-  color: 'white'
-};
-
-// Logo dinámico
-const logo = {
-  main: 'Hosp',
-  alt: 'ital',
-  symbol: '+',
-  subtitle: 'Universitario SFX'
-};
-
-// Navegación principal
-const navItems = [
-  { title: 'Inicio', to: '/' },
-  { title: 'Nosotros', to: '/about' },
-  { title: 'Servicios', to: '/service' },
-  { title: 'Noticias', to: '/notice' },
-  { title: 'Contacto', to: '/contact' }
-];
+const logo = layoutData.logo;
+const topBar = layoutData.topBar;
+const navBar = layoutData.navBar;
+const menuItems = layoutData.menuItems;
 </script>
 
+
 <style scoped>
-/* Espaciado para los botones del drawer en móviles */
 .v-list-item {
   padding: 16px 24px;
 }

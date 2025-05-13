@@ -2,7 +2,6 @@
   <v-main>
     <Home />
     <News />
-    <!-- otras secciones -->
   </v-main>
 </template>
 

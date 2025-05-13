@@ -2,9 +2,9 @@
     <v-container class="contenido">
         <v-row>
             <v-col cols="12">
-                <div class="d-flex align-center mb-6">
+                <div class="align-center mb-6">
                     <div class="green-line mr-4"></div>
-                    <h1 class="text-h4 font-weight-bold">Get in touch</h1>
+                    <h1 class="text-h4 font-weight-bold">Pongase en contacto con Nosotros</h1>
                 </div>
             </v-col>
         </v-row>
@@ -13,8 +13,7 @@
             <!-- Contact Information Section -->
             <v-col cols="12" md="5">
                 <p class="text-body-1 mb-8">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ante leo, finibus quis est ut,
-                    tempor tincidunt ipsum. Nam consequat semper sollicitudin. Aliquam nec dapibus massa.
+                    Para consultas generales, información sobre nuestros servicios o coordinación de atención médica, le invitamos a comunicarse con nuestro equipo. Estamos comprometidos con brindarle una respuesta oportuna y de calidad.
                 </p>
 
                 <div class="contact-info">
@@ -46,30 +45,30 @@
                 <v-form ref="form" v-model="valid" lazy-validation>
                     <v-row>
                         <v-col cols="12" md="6">
-                            <v-text-field v-model="name" label="Name" outlined background-color="rgb(248, 249, 250)"
+                            <v-text-field v-model="name" label="Nombre" outlined background-color="rgb(248, 249, 250)"
                                 hide-details="auto" class="rounded-lg"></v-text-field>
                         </v-col>
 
                         <v-col cols="12" md="6">
-                            <v-text-field v-model="email" label="E-mail" outlined background-color="rgb(248, 249, 250)"
+                            <v-text-field v-model="email" label="Correo" outlined background-color="rgb(248, 249, 250)"
                                 hide-details="auto" class="rounded-lg"></v-text-field>
                         </v-col>
 
                         <v-col cols="12">
-                            <v-text-field v-model="subject" label="Subject" outlined
+                            <v-text-field v-model="subject" label="Asunto" outlined
                                 background-color="rgb(248, 249, 250)" hide-details="auto"
                                 class="rounded-lg"></v-text-field>
                         </v-col>
 
                         <v-col cols="12">
-                            <v-textarea v-model="message" label="Message" outlined background-color="rgb(248, 249, 250)"
+                            <v-textarea v-model="message" label="Mensaje" outlined background-color="rgb(248, 249, 250)"
                                 hide-details="auto" rows="5" class="rounded-lg"></v-textarea>
                         </v-col>
 
                         <v-col cols="12" class="text-center text-md-right">
                             <v-btn color="primary" x-large class="text-uppercase font-weight-bold px-8 send-button"
                                 depressed @click="submitForm">
-                                SEND
+                                Enviar
                             </v-btn>
                         </v-col>
                     </v-row>
@@ -118,11 +117,11 @@ export default {
 .green-line {
     width: 60px;
     height: 4px;
-    background-color: #4caf50;
+    background-color: #20d34a;
 }
 
 .green-bg {
-    background-color: #4caf50 !important;
+    background-color: #20d34a !important;
 }
 
 .send-button {
