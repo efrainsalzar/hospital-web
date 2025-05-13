@@ -1,3 +1,8 @@
+<!--
+  Descripción: Muestra una cuadrícula de tarjetas con los servicios médicos más relevantes del hospital. 
+  Cada tarjeta presenta un ícono, un título y una breve descripción del servicio. Los datos se reciben como props,
+  permitiendo reutilizar el componente con diferentes listas de servicios.
+-->
 <template>
   <v-container fluid class="contenido-primary">
     <v-container class="contenido py-0">
