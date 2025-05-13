@@ -1,5 +1,5 @@
 <template>
-    <v-container fluid class=" contenido-primary py-16">
+  <v-container fluid class="contenido-primary py-16">
     <v-container class="contenido">
       <h2 class="text-h4 font-weight-bold pb-15 text-white">Nuestro departamento de médicos</h2>
       <v-row>
@@ -12,7 +12,7 @@
         >
           <v-card class="medico-card" elevation="4">
             <v-img
-              :src="medico.foto || fotoPorDefecto"
+              :src="medico.foto"
               alt="Foto del médico"
               height="150"
               cover
@@ -23,95 +23,43 @@
         </v-col>
       </v-row>
     </v-container>
-</v-container>
-  </template>
+  </v-container>
+</template>
+
   
-  <script setup>
-  const fotoPorDefecto = new URL('@/assets/images/default_profile.jpg', import.meta.url).href;
-  
-  const medicos = [
-    {
-      nombre: 'Dra. María González',
-      especialidad: 'Pediatría',
-      foto: new URL('@/assets/images/DrGonzales.png', import.meta.url).href,
-    },
-    {
-      nombre: 'Dr. Carlos López',
-      especialidad: 'Cardiología',
-      foto: '', // sin foto, se usará imagen por defecto
-    },
-    {
-      nombre: 'Dra. Luisa Ortega',
-      especialidad: 'Ginecología',
-      foto: new URL('@/assets/images/DrOrtega.png', import.meta.url).href,
-    },
-    {
-      nombre: 'Dr. Jorge Méndez',
-      especialidad: 'Medicina Interna',
-      foto: '', // sin foto
-    },
-    {
-      nombre: 'Dra. Ana Torres',
-      especialidad: 'Dermatología',
-      foto: new URL('@/assets/images/DrTorres.png', import.meta.url).href,
-    },
-    {
-      nombre: 'Dr. Luis Pérez',
-      especialidad: 'Traumatología',
-      foto: '', // sin foto
-    },
-    {
-      nombre: 'Dra. Patricia Ruiz',
-      especialidad: 'Oftalmología',
-      foto: new URL('@/assets/images/DrRuiz.png', import.meta.url).href,
-    },
-    {
-      nombre: 'Dr. Andrés Ramírez',
-      especialidad: 'Neurología',
-      foto: '', // sin foto
-    },
-    {
-      nombre: 'Dra. Sofía Castro',
-      especialidad: 'Endocrinología',
-      foto: new URL('@/assets/images/DrCastro.png', import.meta.url).href,
-    },
-    {
-      nombre: 'Dr. Javier Torres',
-      especialidad: 'Gastroenterología',
-      foto: '', // sin foto
-    },
-    {
-      nombre: 'Dra. Valeria López',
-      especialidad: 'Psiquiatría',
-      foto: new URL('@/assets/images/DrLopez.png', import.meta.url).href,
-    },
-    {
-      nombre: 'Dr. Felipe Martínez',
-      especialidad: 'Urología',
-      foto: '', // sin foto
-    },
-    {
-      nombre: 'Dra. Gabriela Fernández',
-      especialidad: 'Anestesiología',
-      foto: new URL('@/assets/images/DrFernandez.png', import.meta.url).href,
-    },
-    {
-      nombre: 'Dr. Samuel Castro',
-      especialidad: 'Cirugía General',
-      foto: '', // sin foto
-    },
-    {
-      nombre: 'Dra. Mariana Salazar',
-      especialidad: 'Radiología',
-      foto: new URL('@/assets/images/DrSalazar.png', import.meta.url).href,
-    },
-    {
-      nombre: 'Dr. Nicolás Herrera',
-      especialidad: 'Otorrinolaringología',
-      foto: '', // sin foto
-    },
-  ];
-  </script>
+<script setup>
+import { ref, onMounted } from 'vue'
+import axios from 'axios'
+
+const medicos = ref([])
+const loading = ref(true)
+const error = ref(false)
+const fotoPorDefecto = new URL('@/assets/images/default_profile.jpg', import.meta.url).href
+
+const fetchMedicos = async () => {
+  try {
+    const response = await axios.get('http://localhost:3000/api/doctores/completo')
+    // Ajustamos las rutas de las fotos si existen
+    medicos.value = response.data.map((medico) => ({
+      nombre: medico.nombre,
+      especialidad: medico.especialidad,
+      foto: medico.foto_path
+        ? `http://localhost:3000/uploads/${medico.foto_path}`
+        : fotoPorDefecto,
+    }))
+    loading.value = false
+  } catch (err) {
+    console.error('Error al cargar los médicos:', err)
+    error.value = true
+    loading.value = false
+  }
+}
+
+onMounted(() => {
+  fetchMedicos()
+})
+</script>
+
   
   <style scoped>
 
