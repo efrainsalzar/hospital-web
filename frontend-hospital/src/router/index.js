@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import ServiceView from '../views/ServiceView.vue'
 import AboutView from '../views/AboutView.vue'
 import NoticeView from '../views/NoticeView.vue'
+import AddNewPost from '../views/AddNewPost.vue'
 import ContactView from '../views/ContactView.vue'
 
 const routes = [
@@ -10,6 +11,7 @@ const routes = [
   { path: '/service', name: 'Servicios', component: ServiceView },
   { path: '/about', name: 'Nosotros', component: AboutView },
   { path: '/notice', name: 'Noticias', component: NoticeView },
+  { path: '/notice/nueva', name: 'AddNewPost', component: AddNewPost },
   { path: '/contact', name: 'Contacto', component: ContactView }
 ]
 

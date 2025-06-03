@@ -1,4 +1,3 @@
-<!-- src/components/Sidebar.vue -->
 <template>
   <!-- Sidebar -->
   <v-col cols="12" md="4">
@@ -33,9 +32,9 @@
       <!-- Working Hours -->
       <v-card v-for="(card, i) in infoCards" :key="i" class="info-card mb-4" color="indigo-darken-3" elevation="3">
         <v-card-item>
-          <v-card-icon class="text-white d-flex align-center justify-center pb-2">
+          <div class="text-white d-flex align-center justify-center pb-2">
             <v-icon>mdi-clock-time-four</v-icon>
-          </v-card-icon>
+          </div>
           <v-card-title class="text-white text-h6">{{ card.title }}</v-card-title>
         </v-card-item>
         <v-card-text class="text-white">
@@ -62,6 +61,9 @@
           <div class="button ad_button"><a :href="ad.link">leer mas</a></div>
         </div>
       </div>
+        <v-btn to="/notice/nueva" color="primary" class="mt-2">
+          Nueva noticia
+        </v-btn>
     </div>
   </v-col>
 </template>

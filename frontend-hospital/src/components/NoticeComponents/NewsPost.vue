@@ -1,12 +1,12 @@
 <template>
   <v-col cols="12" md="8">
-    <div
-      v-for="(post, index) in paginatedPosts"
-      :key="index"
-      class="news-post mb-8"
-    >
+    <!-- Paginación Superior -->
+    <v-pagination v-model="currentPage" :length="totalPages" class="d-flex justify-center mt-6" color="success" />
+
+    <!-- Noticias paginadas -->
+    <div v-for="(post, index) in paginatedPosts" :key="index" class="news-post mb-8">
       <div class="news-image">
-        <img :src="post.imagen" alt="Imagen de la noticia" />
+        <img :src="post.imagen" alt="Imagen de la noticia" @error="e => (e.target.src = imagenDefecto)" />
         <div class="news-date">
           <div class="day">{{ post.date.day }}</div>
           <div class="month">{{ post.date.month }}</div>
@@ -25,18 +25,13 @@
         <p class="news-summary">{{ post.summary }}</p>
 
         <div class="news-link">
-          <a href="#">Read More</a>
+          <a href="#">Leer más</a>
         </div>
       </div>
     </div>
 
-    <!-- Paginación -->
-    <v-pagination
-      v-model="currentPage"
-      :length="totalPages"
-      class="d-flex justify-center mt-6"
-      color="success"
-    />
+    <!-- Paginación Inferior -->
+    <v-pagination v-model="currentPage" :length="totalPages" class="d-flex justify-center mt-6" color="success" />
   </v-col>
 </template>
 
@@ -44,41 +39,40 @@
 import { ref, computed, onMounted } from 'vue'
 import axios from 'axios'
 
-// Imagen por defecto
-const imagen_defecto = new URL('@/assets/images/cirugia.webp', import.meta.url).href
-
-// Noticias obtenidas del backend
+// Estado
 const newsPosts = ref([])
-
-// Lógica para paginación
 const currentPage = ref(1)
 const itemsPerPage = 3
 
-const totalPages = computed(() => Math.ceil(newsPosts.value.length / itemsPerPage))
+// Imagen por defecto
+const imagenDefecto = new URL('@/assets/images/cirugia.webp', import.meta.url).href
+
+// Computados
+const totalPages = computed(() =>
+  Math.ceil(newsPosts.value.length / itemsPerPage)
+)
 
 const paginatedPosts = computed(() => {
   const start = (currentPage.value - 1) * itemsPerPage
-  const end = start + itemsPerPage
-  return newsPosts.value.slice(start, end)
+  return newsPosts.value.slice(start, start + itemsPerPage)
 })
 
-// Obtener datos desde tu API al montar
+// Cargar noticias
 onMounted(async () => {
   try {
-    const response = await axios.get('http://localhost:3000/api/noticias/completo') // Cambia al endpoint real
+    const response = await axios.get('http://localhost:3000/api/noticias/completo')
 
-    // Adaptar datos al formato que espera tu template
-    newsPosts.value = response.data.map(item => {
+    newsPosts.value = response.data.map((item) => {
       const fecha = new Date(item.fecha)
       return {
         title: item.titulo,
         summary: item.contenido,
         date: {
           day: fecha.getDate().toString().padStart(2, '0'),
-          month: fecha.toLocaleString('es-ES', { month: 'short' }).toUpperCase()
+          month: fecha.toLocaleString('es-ES', { month: 'short' }).toUpperCase(),
         },
         author: item.doctor,
-        imagen: imagen_defecto // Usando la imagen por defecto
+        imagen: `http://localhost:3000/uploads/${item.imagen_path}`,
       }
     })
   } catch (error) {
@@ -87,22 +81,22 @@ onMounted(async () => {
 })
 </script>
 
-
 <style scoped>
 .news-post {
   background-color: #f8f9fa;
-
   overflow: hidden;
 }
 
 .news-image {
   position: relative;
 }
+
 .news-image img {
   width: 100%;
   height: 280px;
   object-fit: cover;
 }
+
 .news-date {
   position: absolute;
   top: 16px;
@@ -114,38 +108,45 @@ onMounted(async () => {
   text-align: center;
   font-weight: bold;
 }
+
 .news-date .day {
   font-size: 20px;
 }
+
 .news-date .month {
   font-size: 12px;
   text-transform: uppercase;
 }
+
 .news-body {
   padding: 24px;
 }
+
 .news-title a {
   font-size: 22px;
   font-weight: 700;
   text-decoration: none;
   color: #2c3e50;
 }
+
 .news-meta {
   display: flex;
-  flex-wrap: wrap;
   gap: 8px;
-  padding: 0;
   margin: 12px 0;
+  padding: 0;
   list-style: none;
 }
+
 .news-meta a {
   color: #2ecc71;
   font-weight: 500;
   text-decoration: none;
 }
+
 .news-summary {
   color: #444;
 }
+
 .news-link a {
   color: #2ecc71;
   font-weight: bold;

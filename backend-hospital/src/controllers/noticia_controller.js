@@ -21,7 +21,38 @@ const getAllComplete = async (req, res) => {
 };
 
 
+
+// Crear una noticia
+const createNoticia = async (req, res) => {
+  try {
+    const { title, content, id_doctor } = req.body;
+    const imagen_path = req.file ? req.file.filename : '';
+
+    console.log({ title, content, imagen_path, id_doctor });
+
+    // Validación básica
+    if (!title || !content || !imagen_path || !id_doctor) {
+      return res.status(400).json({ message: 'Todos los campos son obligatorios' });
+    }
+
+    const nuevaNoticia = {
+      titulo: title,
+      contenido: content,
+      imagen_path,
+      id_doctor: parseInt(id_doctor),
+    };
+
+    const insertId = await NoticiaModel.createNoticia(nuevaNoticia);
+
+    res.status(201).json({ message: 'Noticia creada con éxito', id: insertId });
+  } catch (error) {
+    res.status(500).json({ message: 'Error al crear la noticia', error: error.message });
+  }
+};
+
+
 module.exports = {
   getAll,
-  getAllComplete
+  getAllComplete,
+  createNoticia
 };
