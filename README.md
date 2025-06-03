@@ -2,6 +2,8 @@
 
 Este es el **frontend** del sistema informativo del hospital desarrollado con **Vue.js**. Forma parte de un proyecto más amplio que incluye backend con **Node.js**, **Express** y **GraphQL** (en desarrollo).
 
+Plantilla https://preview.colorlib.com/theme/caremed/index.html#
+
 ## 🚀 Tecnologías principales
 
 - [Vue 3](https://vuejs.org/)
