@@ -63,7 +63,7 @@
               </h3>
 
               <ul class="news-meta">
-                <li><span>Por </span><a>{{ form.doctor_name || 'Nombre del Doctor' }}</a></li>
+                <li><span>Por </span><a>{{ form.doctor_name || 'Autor' }}</a></li>
               </ul>
 
               <p class="news-summary">

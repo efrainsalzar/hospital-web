@@ -36,7 +36,7 @@ export default {
         const popupContent = `
           <strong>Hospital Universitario de Sucre</strong><br/>
           Sincelejo, Sucre, Colombia<br/>
-          <a href="https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}" target="_blank">
+          <a href="https://www.google.com/maps/place/Hospital+Universitario+de+USFX/@-19.0284718,-65.2582832,17z/data=!3m1!4b1!4m6!3m5!1s0x93fbc8c60c733af5:0x6aa55dbd09615ef9!8m2!3d-19.0284718!4d-65.2569957!16s%2Fg%2F1tjyptfr?entry=ttu&g_ep=EgoyMDI1MDYwMi4wIKXMDSoASAFQAw%3D%3D" target="_blank">
             <button style="margin-top: 8px; padding: 6px 10px; background-color: #4CAF50; color: white; border: none; border-radius: 4px; cursor: pointer;">
               Ir a Google Maps
             </button>
