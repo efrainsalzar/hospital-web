@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-05-2025 a las 01:35:53
+-- Tiempo de generación: 09-06-2025 a las 16:00:32
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -48,7 +48,7 @@ INSERT INTO `departamentos` (`id`, `nombre`) VALUES
 (9, 'Otorrinolaringología'),
 (10, 'Psicología y Salud Mental'),
 (11, 'Urgencias y Emergencias'),
-(99, 'Hospital');
+(99, 'Hospital Universitario SFX');
 
 -- --------------------------------------------------------
 
@@ -69,12 +69,32 @@ CREATE TABLE `doctores` (
 --
 
 INSERT INTO `doctores` (`id`, `nombre`, `foto_path`, `id_especialidad`, `id_horario`) VALUES
-(1, 'Hospital', '', 1, 1),
+(1, 'Hospital Universitario SFX', 'USFX.png', 1, 1),
 (6, 'Dr. Juan Pérez', 'juan_perez.png', 59, 1),
 (7, 'Dra. María Gómez', 'maria_gomez.png', 69, 2),
 (8, 'Dr. Luis Martínez', 'luis_martinez.webp', 60, 3),
 (9, 'Dra. Ana Rodríguez', 'ana_rodriguez.png', 75, 4),
-(10, 'Dr. Carlos Sánchez', 'carlos_sanchez.jpg', 80, 5);
+(10, 'Dr. Carlos Sánchez', 'carlos_sanchez.jpg', 80, 5),
+(12, 'Dra. Laura Fernández', 'laura_fernandez.jpg', 59, 2),
+(13, 'Dr. Martín Ríos', 'martin_rios.webp', 60, 3),
+(14, 'Dra. Sofía Navarro', 'sofia_navarro.png', 61, 4),
+(15, 'Dr. Andrés Salazar', 'andres_salazar.jpg', 62, 5),
+(16, 'Dra. Camila Herrera', 'camila_herrera.webp', 63, 6),
+(17, 'Dr. Esteban Molina', 'esteban_molina.png', 64, 1),
+(18, 'Dra. Daniela Torres', 'daniela_torres.jpg', 65, 2),
+(19, 'Dr. Pablo Castillo', 'pablo_castillo.png', 66, 3),
+(20, 'Dra. Valeria Méndez', 'valeria_mendez.webp', 67, 4),
+(21, 'Dr. Ignacio Ruiz', 'ignacio_ruiz.jpg', 68, 5),
+(22, 'Dra. Teresa Campos', 'teresa_campos.png', 69, 6),
+(23, 'Dr. Sergio Aguirre', 'sergio_aguirre.jpg', 70, 1),
+(24, 'Dra. Mónica Vidal', 'monica_vidal.webp', 71, 2),
+(25, 'Dr. Tomás Núñez', 'tomas_nunez.png', 72, 3),
+(26, 'Dra. Elena Cortés', 'elena_cortes.jpg', 73, 4),
+(27, 'Dr. Julián Ortega', 'julian_ortega.webp', 74, 5),
+(28, 'Dra. Paula Rivera', 'paula_rivera.png', 75, 6),
+(29, 'Dr. Ramiro Paredes', 'ramiro_paredes.jpg', 76, 1),
+(30, 'Dra. Inés Delgado', 'ines_delgado.png', 77, 2),
+(31, 'Dr. Bruno Méndez', 'bruno_mendez.webp', 78, 3);
 
 -- --------------------------------------------------------
 
@@ -96,7 +116,7 @@ CREATE TABLE `especialidades` (
 --
 
 INSERT INTO `especialidades` (`id`, `nombre`, `descripcion`, `ficha`, `id_departamento`, `id_horario`) VALUES
-(1, 'Hospital', 'Hospital', 0, 99, 99),
+(1, 'Hospital Universitario SFX', 'Hospital Universitario SFX', 0, 99, 99),
 (59, 'Medicina Interna', 'Atiende enfermedades comunes y crónicas en adultos.', 4, 1, 1),
 (60, 'Cardiología', 'Diagnóstico y tratamiento de enfermedades del corazón.', 4, 1, 2),
 (61, 'Neumología', 'Trata enfermedades del aparato respiratorio.', 7, 1, 3),
@@ -166,7 +186,7 @@ INSERT INTO `horarios` (`id`, `dias`, `turno_m`, `turno_t`) VALUES
 (4, 'Fines de Semana', '08:00 - 14:00', NULL),
 (5, 'Turno Nocturno', '20:00 - 08:00', NULL),
 (6, 'Lunes a Viernes', '07:30 - 11:30', '13:30 - 17:30'),
-(99, 'Hospital', 'Hospital', 'Hospital');
+(99, 'Hospital Universitario SFX', 'Hospital Universitario SFX', 'Hospital Universitario SFX');
 
 -- --------------------------------------------------------
 
@@ -178,6 +198,7 @@ CREATE TABLE `noticias` (
   `id` int(11) NOT NULL,
   `titulo` varchar(255) NOT NULL,
   `contenido` text NOT NULL,
+  `imagen_path` varchar(255) NOT NULL,
   `fecha_publicacion` datetime DEFAULT current_timestamp(),
   `id_doctor` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -186,14 +207,28 @@ CREATE TABLE `noticias` (
 -- Volcado de datos para la tabla `noticias`
 --
 
-INSERT INTO `noticias` (`id`, `titulo`, `contenido`, `fecha_publicacion`, `id_doctor`) VALUES
-(1, 'Corte de energía programado', 'Se realizará un corte de energía eléctrica el día viernes a partir de las 14:00 en el ala este del hospital.', '2025-05-13 18:53:40', 1),
-(2, 'Nueva área de pediatría', 'Se inauguró una nueva área equipada especialmente para atención pediátrica de emergencia.', '2025-05-13 18:53:40', 1),
-(3, 'Campaña de vacunación', 'Desde el lunes se llevará a cabo una campaña gratuita de vacunación contra la influenza en el hospital.', '2025-05-13 18:53:40', 1),
-(4, 'Mantenimiento de equipos', 'El área de electromedicina realizará una revisión completa de los equipos este fin de semana.', '2025-05-13 18:53:40', 1),
-(5, 'Actualización del protocolo COVID-19', 'El protocolo de atención a pacientes con síntomas respiratorios ha sido actualizado según las nuevas recomendaciones.', '2025-05-13 18:55:20', 6),
-(6, 'Charlas de salud mental', 'La Dra. Ana Martínez ofrecerá una serie de charlas sobre la importancia de la salud mental en contextos de emergencia.', '2025-05-13 18:55:30', 7),
-(7, 'Nuevo equipo de rayos X en urgencias', 'Se ha instalado un nuevo equipo de rayos X de alta resolución para mejorar los diagnósticos rápidos en el área de emergencias.', '2025-05-13 18:55:36', 8);
+INSERT INTO `noticias` (`id`, `titulo`, `contenido`, `imagen_path`, `fecha_publicacion`, `id_doctor`) VALUES
+(1, 'Corte de energía programado', 'Se realizará un corte de energía eléctrica el día viernes a partir de las 14:00 en el ala este del hospital.', '', '2025-05-13 18:53:40', 1),
+(2, 'Nueva área de pediatría', 'Se inauguró una nueva área equipada especialmente para atención pediátrica de emergencia.', '', '2025-05-13 18:53:40', 1),
+(3, 'Campaña de vacunación', 'Desde el lunes se llevará a cabo una campaña gratuita de vacunación contra la influenza en el hospital.', '', '2025-05-13 18:53:40', 1),
+(4, 'Mantenimiento de equipos', 'El área de electromedicina realizará una revisión completa de los equipos este fin de semana.', '', '2025-05-13 18:53:40', 1),
+(5, 'Actualización del protocolo COVID-19', 'El protocolo de atención a pacientes con síntomas respiratorios ha sido actualizado según las nuevas recomendaciones.', '', '2025-05-13 18:55:20', 6),
+(6, 'Charlas de salud mental', 'La Dra. Ana Martínez ofrecerá una serie de charlas sobre la importancia de la salud mental en contextos de emergencia.', '', '2025-05-13 18:55:30', 7),
+(7, 'Nuevo equipo de rayos X en urgencias', 'Se ha instalado un nuevo equipo de rayos X de alta resolución para mejorar los diagnósticos rápidos en el área de emergencias.', '', '2025-05-13 18:55:36', 8),
+(8, 'Nueva vacuna contra virus X', 'El hospital ha desarrollado una nueva vacuna efectiva.', 'noticia1.jpg', '2025-06-03 10:35:56', 1),
+(9, 'Sint et in blanditii', 'Voluptate et aut nul', 'procesos propuestos.png', '2025-06-03 11:18:05', 1),
+(10, 'Doloribus laboris vo', 'Tempor anim vero qua', '1748979095664-procesos propuestos.png', '2025-06-03 15:31:35', 1),
+(11, 'Test Nueva Noticia', 'El contenido de una nueva noticia cool', '1748979513359-Diagrama en blanco.png', '2025-06-03 15:38:33', 1),
+(12, 'Omnis sit magna con', 'Itaque rerum ea opti', '1748982168255-nueva-imagen-fondo_853558-8521.jpg', '2025-06-03 16:22:48', 1),
+(13, 'Con Previsualizacion de la vida', 'Quia veniam commodi que moejor que esto verdad ', '1748986082269-nueva-imagen-fondo_853558-8521.jpg', '2025-06-03 17:28:02', 1),
+(15, 'Officia ut omnis odi', 'Magnam numquam conse', '1748986134810-nueva-imagen-fondo_853558-8521.jpg', '2025-06-03 17:28:54', 1),
+(16, 'Totam commodo in err', 'Sed rem facere qui i', '1748986429406-nueva-imagen-fondo_853558-8521.jpg', '2025-06-03 17:33:49', 1),
+(17, 'Culpa molestiae plac', 'Distinctio Eaque no', '1748986805821-nueva-imagen-fondo_853558-8521.jpg', '2025-06-03 17:40:05', 1),
+(18, 'base 1', 'Enim sed eveniet am', '1748987561955-nueva-imagen-fondo_853558-8521.jpg', '2025-06-03 17:52:41', 1),
+(19, 'Ea nisi nobis offici', 'Unde ea necessitatib', '1748987914136-nueva-imagen-fondo_853558-8521.jpg', '2025-06-03 17:58:34', 10),
+(20, 'Nuevo equipo de rayos X revoluciona el diagnóstico en emergencias del Hospital Central', 'En una significativa mejora para el área de emergencias, el Hospital Central ha incorporado un moderno equipo de rayos X digital de última generación, capaz de ofrecer imágenes diagnósticas en alta resolución en tan solo segundos. Este avance tecnológico permitirá a los médicos realizar diagnósticos más rápidos y precisos, especialmente en casos críticos como traumatismos, fracturas o emergencias respiratorias.\r\n\r\nEl nuevo equipo cuenta con software inteligente que optimiza automáticamente los parámetros de exposición, reduciendo la dosis de radiación hasta en un 40% en comparación con los equipos tradicionales. Además, está completamente integrado al sistema hospitalario, lo que permite almacenar los resultados directamente en el historial médico digital del paciente, facilitando el acceso inmediato por parte de otros especialistas.', '1748988363717-nueva-imagen-fondo_853558-8521.jpg', '2025-06-03 18:06:03', 1),
+(21, 'ING. Romina Daza', 'La materia de Etica SCH 160 es lo mejor', '1749127605755-procesoss propuestos.png', '2025-06-05 08:46:45', 1),
+(22, 'NOTICIA BOMBA', 'esta es una noticia muy bomba', '1749134685622-Captura de pantalla (29).png', '2025-06-05 10:44:45', 1);
 
 --
 -- Índices para tablas volcadas
@@ -248,7 +283,7 @@ ALTER TABLE `departamentos`
 -- AUTO_INCREMENT de la tabla `doctores`
 --
 ALTER TABLE `doctores`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT de la tabla `especialidades`
@@ -266,7 +301,7 @@ ALTER TABLE `horarios`
 -- AUTO_INCREMENT de la tabla `noticias`
 --
 ALTER TABLE `noticias`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- Restricciones para tablas volcadas
