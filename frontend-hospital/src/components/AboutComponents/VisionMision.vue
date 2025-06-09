@@ -29,13 +29,13 @@
 const vision = {
   titulo: 'Visión',
   descripcion: 'El Hospital Universitario tiene como misión la provisión de servicios de salud especializados para la atención médica de alta calidad, eficiente y segura de la población de Sucre y sus provincias, integrando funciones de investigación y docencia, vinculado académicamente a la Universidad San Francisco Xavier y fomentando su vocación de hospital de referencia nacional.',
-  image: new URL('@/assets/images/serviciosHospital.webp', import.meta.url).href,
+  image: new URL('@/assets/images/vision.jpg', import.meta.url).href,
 };
 
 const mision = {
   titulo: 'Misión',
   descripcion: 'Ser la primera opción de hospitalización y de atención especializada para la población, con calidad técnica, confortabilidad de sus instalaciones, el respeto a la cultura, autonomía y privacidad de sus usuarios. Comprometidos con la innovación, la docencia y la investigación como claves para el progreso de la oferta asistencial.',
-  image: new URL('@/assets/images/serviciosHospital.webp', import.meta.url).href,
+  image: new URL('@/assets/images/mision.png', import.meta.url).href,
 };
 </script>
 
